@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flux de controle</title>
+  </head>
+  <body>
+    <h1>Flux de contrôle</h1>
+    <p>
+      En JavaScript, il s’agit d’une façon dont votre ordinateur exécute le code
+      de haut en bas. Il commence à la première ligne et se termine à la
+      dernière ligne, à moins qu’il ne rencontre une instruction qui modifie le
+      flux de contrôle du programme, comme les boucles, les conditions,
+      etc.Control flow Nous pouvons contrôler le flux du programme à travers
+      n’importe laquelle de ces structures de contrôle : Séquentiel (mode par
+      défaut) Instructions conditionnelles Gestion des exceptions Boucles et
+      itérations
+    </p>
+    <h1>Instructions conditionnelles</h1>
+    <p>
+      Lorsque vous écrivez du code, vous souhaitez souvent effectuer différentes
+      actions pour différentes décisions. Pour ce faire, vous pouvez utiliser
+      des instructions conditionnelles dans votre code. En JavaScript, nous
+      avons trois instructions conditionnelles : , , et .ifif...elseswitch ex:
+      if (condition) <br />{ /* code to run if condition is true */ } <br />else
+      { /* run some other code instead */ }
+    </p>
+    <h1>if/else if/else</h1>
+    <label for="weather">Select the weather type today: </label>
+    <select id="weather">
+      <option value="">--Make a choice--</option>
+      <option value="sunny">Sunny</option>
+      <option value="rainy">Rainy</option>
+      <option value="snowing">Snowing</option>
+      <option value="overcast">Overcast</option>
+    </select>
+
+    <p class="rep"></p>
+    <h1>-----------------------------------------</h1>
+    <h1>switch</h1>
+    <label for="weat">Select the weather type today:</label>
+    <select id="weat">
+      <option value="">--Make a choice--</option>
+      <option value="sunny">Sunny</option>
+      <option value="rainy">Rainy</option>
+      <option value="snowing">Snowing</option>
+      <option value="overcast">Overcast</option>
+    </select>
+
+    <p class="choice"></p>
+
+    <h1>------------------------------------</h1>
+    <h1>Opérateur ternaire</h1>
+    <p>
+      Il y a un dernier élément de syntaxe que nous voulons vous présenter avant
+      de vous donner quelques exemples. L’opérateur ternaire ou conditionnel est
+      un petit morceau de syntaxe qui teste une condition et renvoie une
+      valeur/expression si elle est , et une autre si c’est le cas — cela peut
+      être utile dans certaines situations, et peut prendre beaucoup moins de
+      code qu’un bloc si vous avez deux choix qui sont choisis entre via une
+      condition /. Le pseudo-code ressemble à ceci :truefalseif...elsetruefalse
+      <br />
+      ex : condition ? run this code : run this code instead
+    </p>
+    <label for="theme">Select theme: </label>
+    <select id="theme">
+      <option value="white">White</option>
+      <option value="black">Black</option>
+    </select>
+    <hr />
+    <h1>Gestion des exceptions</h1>
+    <p>
+      En JavaScript, toutes les exceptions sont simplement des objets. Bien que
+      la majorité des exceptions soient des implémentations de la classe globale
+      Error, n’importe quel ancien objet peut être levé. En gardant cela à
+      l’esprit, il existe deux façons de lever une exception : directement via
+      un objet Error et via un objet personnalisé. (extrait de Rollbar) <br />
+      syntaxe <br />
+      throw expression
+    </p>
+    <h1>Instruction Throw</h1>
+    <p>
+      L’instruction throw lève une exception définie par l’utilisateur.
+      L’exécution de la fonction courante s’arrêtera (les instructions après
+      throw ne seront pas exécutées) et le contrôle sera passé au premier bloc
+      catch de la pile des appels. S’il n’existe pas de bloc catch parmi les
+      fonctions appelantes, le programme s’arrête.
+    </p>
+    <p>Please input a number between 5 and 10:</p>
+
+    <input id="demo" type="text" />
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="message"></p>
+    <h1>Essayer, attraper, enfin</h1>
+    <p>
+      Ce sont des façons de gérer les erreurs dans votre code JavaScript. À
+      l’intérieur du bloc de code try, nous avons le code à exécuter, à
+      l’intérieur du bloc catch nous gérons les erreurs, et à l’intérieur du
+      bloc finally nous avons du code qui s’exécute après l’exécution des blocs
+      de code précédents, quel que soit le résultat.
+    </p>
+    <hr />
+    <h1>Utilisation d’objets d’erreur</h1>
+    <p>
+      Lorsqu’une erreur d’exécution se produit, un nouvel objet est créé et
+      lancé. Avec cet objet, nous pouvons déterminer le type de l’erreur et la
+      gérer en fonction de son type.ErrorError
+    </p>
+
+    <h1>Types d’erreurs</h1>
+    <p>
+      Outre les constructeurs d’erreurs, Javascript a également d’autres
+      constructeurs d’erreurs de base. <br />
+      1) AggregateError (Erreur d’agrégation) <br />
+      2)EvalError (Erreur d’évaluation) <br />
+      3)ErreurInterne <br />
+      4)ErreurPlage <br />
+      5)ReferenceError (Erreur de référence) <br />
+      6)SyntaxError (Erreur de syntaxe)
+    </p>
+
+    <script>
+      const a = 3;
+      const b = 8;
+      if (a < b) {
+        console.log("a est infer < b");
+      } else {
+        console.log("b est supp > a ");
+      }
+
+      /*------------------------------------------*/
+      const select = document.querySelector("select");
+      const para = document.querySelector(".rep");
+
+      select.addEventListener("change", setWeather);
+
+      function setWeather() {
+        const choice = select.value;
+
+        if (choice === "sunny") {
+          para.textContent =
+            "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
+        } else if (choice === "rainy") {
+          para.textContent =
+            "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
+        } else if (choice === "snowing") {
+          para.textContent =
+            "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
+        } else if (choice === "overcast") {
+          para.textContent =
+            "It isn't raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.";
+        } else {
+          para.textContent = "";
+        }
+      }
+      /*--------------methode switch------------------*/
+      /*const select = document.querySelector("select");
+const para = document.querySelector(".choice");
+
+select.addEventListener("change", setWeather);
+
+function setWeather() {
+  const choice = select.value;
+
+  switch (choice) {
+    case "sunny":
+      para.textContent =
+        "It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.";
+      break;
+    case "rainy":
+      para.textContent =
+        "Rain is falling outside; take a rain coat and an umbrella, and don't stay out for too long.";
+      break;
+    case "snowing":
+      para.textContent =
+        "The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.";
+      break;
+    case "overcast":
+      para.textContent =
+        "It isn't raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.";
+      break;
+    default:
+      para.textContent = "";
+  }
+}*/
+      /*--------------------------------------------*/
+      const sel = document.querySelector("#theme");
+      const html = document.querySelector("html");
+      document.body.style.padding = "10px";
+
+      function update(bgColor, textColor) {
+        html.style.backgroundColor = bgColor;
+        html.style.color = textColor;
+      }
+
+      sel.addEventListener("change", () =>
+        sel.value === "black"
+          ? update("black", "white")
+          : update("white", "black")
+      );
+      /*--------------------------------------------------*/
+      //comment lever une erreur
+      /*Les erreurs sont levées par le moteur et les exceptions sont levées par le développeur. Mais qu’est-ce que cela signifie exactement ? En JavaScript, toutes les exceptions sont simplement des objets. Bien que la majorité des exceptions soient des implémentations de la classe globale Error, n’importe quel ancien objet peut être levé. En gardant cela à l’esprit, il existe deux façons de lever une exception : directement via un objet Error et via un objet personnalisé.*/
+      //syntaxe throw expression
+      //throw new Error("Exception message");
+      /*try {
+  // run this code
+} catch (err) {
+  // if an error happened, then jump here
+  // err is the error object
+} finally {
+  // do in any case after try/catch
+}*/
+      try {
+        doSomething();
+      } catch (e) {
+        //Rollbar.error("Something went wrong", e);
+        console.log("Something went wrong", e.message);
+      }
+
+      function getArea(width, height) {
+        if (isNaN(width) || isNaN(height)) {
+          throw new Error("Parameter is not a number");
+        } else {
+          return height * width;
+        }
+      }
+
+      try {
+        getArea(3, "M");
+      } catch (e) {
+        console.log(e.message);
+      } finally {
+        console.log("error remove");
+      }
+      /*-------------------*/
+      function myFunction() {
+        const message = document.getElementById("message");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try {
+          if (x == "") throw "is Empty";
+          if (isNaN(x)) throw "not a number";
+          if (x > 10) throw "too high";
+          if (x < 5) throw "too low";
+        } catch (err) {
+          message.innerHTML = "Input " + err;
+        }
+      }
+      /*----------------------*/
+      //exo
+      /*Nous avons vraiment besoin du nettoyage après le travail, peu importe s’il y a eu une erreur ou non.
+
+Y a-t-il un avantage à utiliser ou les deux fragments de code sont-ils égaux ? S’il y a un tel avantage, alors donnez un exemple quand c’est important.finally*/
+      function f() {
+        try {
+          alert("start");
+          return "result";
+        } catch (err) {
+          /// ...
+        } finally {
+          alert("cleanup!");
+        }
+      }
+
+      //f(); // cleanup!
+      /*----------------------------------------------*/
+      /*L’objet AggregateError représente une erreur lorsque plusieurs erreurs doivent être encapsulées dans une seule erreur. Il est levé lorsque plusieurs erreurs doivent être signalées par une opération, par exemple par Promise.any(), lorsque toutes les promesses qui lui sont passées sont rejetées.*/
+      try {
+        throw new AggregateError([new Error("some error")], "Hello");
+      } catch (e) {
+        console.log(e instanceof AggregateError); // true
+        console.log(e.message); // "Hello"
+        console.log(e.name); // "AggregateError"
+        console.log(e.errors); // [ Error: "some error" ]
+      }
+      /*L’objet EvalError indique une erreur concernant la fonction globale eval(). Cette exception n’est plus levée par JavaScript, mais l’objet reste pour des raisons de compatibilité.EvalError*/
+      try {
+        throw new EvalError("Hello");
+      } catch (e) {
+        console.log(e instanceof EvalError); // true
+        console.log(e.message); // "Hello"
+        console.log(e.name); // "EvalError"
+        console.log(e.stack); // Stack of the error
+      }
+      /*L’objet RangeError indique une erreur lorsqu’une valeur ne figure pas dans l’ensemble ou la plage de valeurs autorisées.*/
+      function check(n) {
+        if (!(n >= -500 && n <= 500)) {
+          throw new RangeError("The argument must be between -500 and 500.");
+        }
+      }
+
+      try {
+        check(2000);
+      } catch (error) {
+        if (error instanceof RangeError) {
+          // Handle the error
+          console.log(error.message);
+        }
+      }
+      /*L’objet ReferenceError représente une erreur lorsqu’une variable qui n’existe pas (ou qui n’a pas encore été initialisée) dans la portée actuelle est référencée.*/
+      try {
+        throw new ReferenceError("Hello");
+      } catch (e) {
+        console.log(e instanceof ReferenceError); // true
+        console.log(e.message); // "Hello"
+        console.log(e.name); // "ReferenceError"
+        console.log(e.stack); // Stack of the error
+      }
+      /*L’objet SyntaxError représente une erreur lors de la tentative d’interprétation d’un code syntaxiquement non valide. Il est levé lorsque le moteur JavaScript rencontre des jetons ou un ordre de jetons qui ne sont pas conformes à la syntaxe du langage lors de l’analyse du code.*/
+      try {
+        throw new SyntaxError("Hello");
+      } catch (e) {
+        console.log(e instanceof SyntaxError); // true
+        console.log(e.message); // "Hello"
+        console.log(e.name); // "SyntaxError"
+        console.log(e.stack); // Stack of the error
+      }
+    </script>
+  </body>
+</html>

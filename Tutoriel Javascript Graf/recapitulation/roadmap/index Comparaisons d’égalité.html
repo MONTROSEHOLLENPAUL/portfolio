@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparaisons d’égalité</title>
+  </head>
+  <body>
+    <h1>Comparaisons d’égalité</h1>
+    <p>
+      Les opérateurs de comparaison sont utilisés dans les instructions logiques
+      pour déterminer l’égalité ou la différence entre des variables ou des
+      valeurs. Les opérateurs de comparaison peuvent être utilisés dans les
+      instructions conditionnelles pour comparer des valeurs et prendre des
+      mesures en fonction du résultat.
+    </p>
+    <p>
+      Operator Description Comparing Returns Try it == equal to x == 8 false x
+      == 5 true x == "5" true === equal value and equal type x === 5 true x ===
+      "5" false != not equal x != 8 true !== not equal value or not equal type x
+      !== 5 false x !== "5" true x !== 8 true > greater than x > 8 false < less
+      than x < 8 true >= greater than or equal to x >= 8 false <= less than or
+      equal to x <= 8 true
+    </p>
+    <h1>Opérateurs logiques</h1>
+    <p>
+      Les opérateurs logiques sont utilisés pour déterminer la logique entre les
+      variables ou les valeurs. Étant donné que et , le tableau ci-dessous
+      explique les opérateurs logiques
+    </p>
+    <h1>Opérateurs de comparaison de valeurs</h1>
+    <p>
+      En javascript, l’opérateur effectue la conversion de type des opérandes
+      avant comparaison, tandis que l’opérateur compare les valeurs et les types
+      de données des opérandes. La méthode détermine si deux valeurs ont la même
+      valeur : .=====Object.is()Object.is(value1, value2) Object.is() n’est pas
+      équivalent à l’opérateur. L’opérateur applique diverses coercitions aux
+      deux côtés (si elles ne sont pas du même type) avant de tester l’égalité
+      (ce qui donne un comportement tel que étant ), mais ne contraint aucune
+      des deux valeurs.===="" == falsetrueObject.is() Object.is() n’est pas non
+      plus équivalent à l’opérateur. La seule différence entre et réside dans
+      leur traitement des zéros et des valeurs signés. L’opérateur (et
+      l’opérateur) traite les valeurs numériques et comme égales, mais les
+      traite comme non égales les unes aux
+      autres.===Object.is()===NaN=====-0+0NaN
+    </p>
+    <script>
+      /*Operator	Description	Comparing	Returns	Try it
+      ==	equal to	x == 8	false
+      x == 5	true
+      x == "5"	true
+      ===	equal value and equal type	x === 5	true
+      x === "5"	false
+      !=	not equal	x != 8	true
+      !==	not equal value or not equal type	x !== 5	false
+      x !== "5"	true
+      x !== 8	true
+      >	greater than	x > 8	false
+      <	less than	x < 8	true
+      >=	greater than or equal to	x >= 8	false
+      <=	less than or equal to	x <= 8	true*/
+      //------------------------------------------------------
+      //Years
+      const Years = new Date();
+      const annee = Years.getFullYear();
+      //console.log(annee);
+      //---------------------------------------------------
+      const months = new Date();
+      const mois = months.getMonth() + 1;
+      //days of the week
+      const weekday = [
+        "Dimanche",
+        "Lundi",
+        "Mardi",
+        "Mercredi",
+        "Jeudi",
+        "Vendredi",
+        "Samedi",
+      ];
+      const d = new Date();
+      let day = weekday[d.getDay()];
+      //console.log(day);
+      //------------------------------------------------------
+      //the days
+      const jours = new Date();
+      const days = jours.getDate();
+      //console.log(days);
+      //---------------------------------------------------
+      //months of the year
+      const mont = [
+        "Janvier",
+        "Fevrier",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Aout",
+        "septembre",
+        "Octobre",
+        "Novembre",
+        "Decembre",
+      ];
+      const M = new Date();
+      const Month = mont[M.getMonth()];
+      //console.log(Month);
+      //---------------------------------------------------
+      console.log(`Today is ${day} ${days} ${Month} ${annee}`);
+      //------------------------------------------------------
+      const age = prompt("Enter your age ?");
+      const ageconv = Number(age);
+      const birthmonth = prompt("Enter your birthmonth ?");
+      const birthconv = String(mont[M.getMonth()]);
+      //---------------------------------------------------
+      const answer = annee - age;
+      console.log(`your were born on ${birthmonth} ${answer}`);
+      if (age <= 17) {
+        console.log("You're child, you should be at school");
+      } else if (age <= 18) {
+        console.log("You're mayor, you should be in terminal");
+      } else {
+        console.log("You're adult ,you should be at work , Sir/Mrs");
+      }
+      /*Opérateurs de comparaison de valeurs
+      En javascript, l’opérateur effectue la conversion de type des opérandes avant comparaison, tandis que l’opérateur compare les valeurs et les types de données des opérandes. La méthode détermine si deux valeurs ont la même valeur : .=====Object.is()Object.is(value1, value2)
+      Object.is() n’est pas équivalent à l’opérateur. L’opérateur applique diverses coercitions aux deux côtés (si elles ne sont pas du même type) avant de tester l’égalité (ce qui donne un comportement tel que étant ), mais ne contraint aucune des deux valeurs.===="" == falsetrueObject.is()
+      Object.is() n’est pas non plus équivalent à l’opérateur. La seule différence entre et réside dans leur traitement des zéros et des valeurs signés. L’opérateur (et l’opérateur) traite les valeurs numériques et comme égales, mais les traite comme non égales les unes aux autres.===Object.is()===NaN=====-0+0NaN*/
+      let a = 10;
+      let b = 10;
+      let c = -10;
+      let f = "10";
+
+      console.log(a == b);
+      //output: true
+
+      console.log(a == c);
+      //output: false
+
+      console.log(b != c);
+      //output: true
+
+      console.log(a != b);
+      //output: false
+
+      console.log(a === f);
+      //output: false
+
+      console.log(a == f);
+      //output: true
+
+      console.log(a === b);
+      //output: true
+
+      console.log(a !== b);
+      //output: false
+
+      console.log(b !== f);
+      //output: true
+    </script>
+  </body>
+</html>

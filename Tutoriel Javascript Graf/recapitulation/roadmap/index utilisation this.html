@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilisation this</title>
+  </head>
+  <body>
+    <h1>Ce mot-clé (this)</h1>
+    <p>
+      En JavaScript, le mot-clé est un peu différent par rapport aux autres
+      langages. Il fait référence à un objet, mais cela dépend de la manière
+      dont il est invoqué et de l’endroit où il est invoqué. Il présente
+      également quelques différences entre le mode strict et le mode non
+      strict.this <br />
+
+      Dans une méthode objet, fait référence à l’objet this <br />
+      Seul, fait référence à l’objet global this <br />
+      Dans une fonction, fait référence à l’objet global this <br />
+      Dans une fonction, en mode strict, n’est pas défini this <br />
+      Dans un événement, fait référence à l’élément qui a reçu l’événement this
+      <br />
+      Des méthodes comme call(), apply() et bind() peuvent faire référence à
+      n’importe quel objet this
+    </p>
+    <hr />
+    <h1>this dans les gestionnaires d’événements</h1>
+    <p>
+      Le mot-clé, lorsqu’il est utilisé dans un gestionnaire d’événements, fait
+      référence à l’élément qui a reçu l’événement.this
+    </p>
+    <button onclick="this.style.display='none'"> Click to Remove Me! </button>
+    <hr>
+    <h1>Emprunt de fonction</h1>
+    <p>
+      L’emprunt de fonction nous permet d’utiliser les méthodes d’un objet sur un objet différent sans avoir à faire une copie de cette méthode et à la maintenir à deux endroits distincts. Il est accompli par l’utilisation de , , ou , qui existent tous pour définir explicitement ceci sur la méthode que nous empruntons..call().apply().bind()</p>
+    <script src="index word this.js"></script>
+  </body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expressions et opérateurs</title>
+  </head>
+  <body>
+    <h1>Expressions et opérateurs</h1>
+    <p>
+      À un niveau élevé, une expression est une unité de code valide qui se
+      résout en une valeur. Il existe deux types d’expressions : celles qui ont
+      des effets secondaires (tels que l’attribution de valeurs) et celles qui
+      évaluent purement . L’expression est un exemple du premier type. Cette
+      expression utilise l’opérateur pour affecter la valeur sept à la variable
+      x. L’expression elle-même est évaluée à 7. L’expression est un exemple du
+      deuxième type. Cette expression utilise l’opérateur pour additionner et
+      ensemble et produit une valeur, . Cependant, s’il ne fait pas partie d’une
+      construction plus grande (par exemple, une déclaration de variable comme
+      ), son résultat sera immédiatement rejeté, il s’agit généralement d’une
+      erreur de programmeur car l’évaluation ne produit aucun effet. Comme
+      l’illustrent également les exemples ci-dessus, toutes les expressions
+      complexes sont jointes par des opérateurs, tels que et .x = 7=3 +
+      4+347const z = 3 + 4—=+ <br />
+
+      Opérateurs d’affectation <br />
+      Opérateurs de comparaison <br />
+      Opérateurs arithmétiques <br />
+      Opérateurs binaires <br />
+      Opérateurs logiques <br />
+      Opérateurs BigInt <br />
+      Opérateurs de chaîne <br />
+      Opérateur conditionnel (ternaire) <br />
+      Opérateur virgule <br />
+      Opérateurs unaires <br />
+      Opérateurs relationnels
+    </p>
+    <hr />
+    <h1>Opérateurs d’affectation</h1>
+    <p>
+      Un opérateur d’affectation attribue une valeur à son opérande gauche en
+      fonction de la valeur de son opérande droit. L’opérateur d’affectation
+      simple est égal à (), qui attribue la valeur de son opérande droit à son
+      opérande gauche. C’est-à-dire qu’il s’agit d’une expression d’affectation
+      qui attribue la valeur de à . =x = f()f()x <br />
+      Nom Opérateur sténographe Signification <br />
+      Mission x = f() x = f() <br />
+      Affectation d’addition x += f() x = x + f(). <br />
+      Affectation de soustraction x -= f() x = x - f(). <br />
+      Affectation de multiplication x *= f() x = x * f(). <br />
+      Affectation de division x /= f() x = x / f(). <br />
+      Affectation restante x %= f() x = x % f(). <br />
+      Affectation d’exponentiation x **= f() x = x ** f(). <br />
+      Affectation du décalage vers la gauche x <<= f() x = x << f(). <br />
+      Affectation du quart de travail à droite x >>= f() x = x >> f(). <br />
+      Affectation de décalage à droite non signée x >>>= f() x = x >>> f().
+      <br />
+      Affectation ET au niveau du bit x &= f() x = x & f(). <br />
+      Affectation XOR au niveau du bit x ^= f() x = x ^ f(). <br />
+      Affectation OU au niveau du bit x |= f() x = x | f(). <br />
+      Affectation logique ET x &&= f() x && (x = f()). <br />
+      Affectation logique de la salle d’opération x ||= f() x || (x = f())
+      <br />
+      Affectation de coalescence nulleNullish coalescing assignment x ??= f() x
+      ?? (x = f())
+    </p>
+    <h3>Affectation (=)</h3>
+    <p>
+      L’opérateur d’affectation (=) permet d’affecter une valeur à une variable
+      ou à une propriété. L’expression d’affectation elle-même a une valeur, qui
+      est la valeur affectée. Cela permet d’enchaîner plusieurs affectations
+      afin d’attribuer une seule valeur à plusieurs variables. <br />
+      syntaxe : x = y
+    </p>
+    <h3>Affectation de soustraction (-=)</h3>
+    <p>
+      L’opérateur d’affectation de soustraction (-=) effectue une soustraction
+      sur les deux opérandes et attribue le résultat à l’opérande de gauche.
+      <br />
+      syntaxe : x -= y
+    </p>
+    <hr />
+    <h1>Opérateurs de comparaison</h1>
+    <p>
+      Un opérateur de comparaison compare ses opérandes et renvoie une valeur
+      logique selon que la comparaison est vraie ou non. Les opérandes peuvent
+      être numériques, de chaîne, logiques ou d’objet. Les chaînes sont
+      comparées en fonction de l’ordre lexicographique standard, à l’aide de
+      valeurs Unicode. Dans la plupart des cas, si les deux opérandes ne sont
+      pas du même type, JavaScript tente de les convertir en un type approprié
+      pour la comparaison. Ce comportement se traduit généralement par une
+      comparaison numérique des opérandes. Les seules exceptions à la conversion
+      de type dans les comparaisons concernent les opérateurs et , qui
+      effectuent des comparaisons strictes d’égalité et d’inégalité. Ces
+      opérateurs ne tentent pas de convertir les opérandes en types compatibles
+      avant de vérifier l’égalité. Le tableau suivant décrit les opérateurs de
+      comparaison en fonction de cet exemple de code : === !== <br />
+      Opérateur Description Exemples renvoyant true Égal (==) Renvoie si les
+      opérandes sont égaux.true 3 == var1 "3" == var1 3 == '3' <br />
+      Différent (!=) Renvoie si les opérandes ne sont pas égaux.true var1 != 4
+      var2 != "3" <br />
+      Stricte égalité (===) Renvoie si les opérandes sont égaux et de même type.
+      Voir aussi Object.is et similitude en JS. true 3 === var1 <br />
+      Strict n’est pas égal (!==) Renvoie si les opérandes sont du même type
+      mais ne sont pas égaux, ou s’ils sont de type différent.true var1 !== "3"
+      3 !== '3' <br />
+      Plus grand que (>) Renvoie si l’opérande de gauche est supérieur à
+      l’opérande de droite.true var2 > var1 "12" > 2 <br />
+      Supérieur ou égal à (>=) Renvoie si l’opérande de gauche est supérieur ou
+      égal à l’opérande de droite.true var2 >= var1 var1 >= 3 <br />
+      Moins de (<) Renvoie si l’opérande de gauche est inférieur à l’opérande de
+      droite.true var1 < var2 "2" < 12 br Inférieur ou égal à (<=) Renvoie si
+      l’opérande de gauche est inférieur ou égal à l’opérande de droite.true
+      var1 <= var2 var2 <= 5
+    </p>
+    <hr />
+    <h1>Opérateurs arithmétiques</h1>
+    <p>
+      Un opérateur arithmétique prend des valeurs numériques (littérales ou
+      variables) comme opérandes et renvoie une seule valeur numérique. Les
+      opérateurs arithmétiques standard sont l’addition (), la soustraction (),
+      la multiplication () et la division (). Ces opérateurs fonctionnent comme
+      ils le font dans la plupart des autres langages de programmation
+      lorsqu’ils sont utilisés avec des nombres à virgule flottante (en
+      particulier, notez que la division par zéro produit l’infini). Par
+      exemple: +-*/ <br />
+      Opérateur Description Exemple Reste (%) Opérateur binaire. Renvoie le
+      reste entier de la division des deux opérandes. 12 % 5 retours 2. <br />
+      Augmentation (++) Opérateur unaire. Ajoute un à son opérande. S’il est
+      utilisé comme opérateur de préfixe (), renvoie la valeur de son opérande
+      après en avoir ajouté un ; s’il est utilisé comme opérateur de suffixe (),
+      renvoie la valeur de son opérande avant d’en ajouter un. ++xx++ Si vaut 3,
+      alors se définit à 4 et renvoie 4, tandis que renvoie 3 et, seulement
+      alors, prend la valeur 4. x++xxx++x <br />
+      Decrement (--) Opérateur unaire. Soustrait un de son opérande. La valeur
+      de retour est analogue à celle de l’opérateur d’incrémentation. Si vaut 3,
+      alors se définit à 2 et renvoie 2, tandis que renvoie 3 et, seulement
+      alors, prend la valeur 2. x--xxx--x <br />
+      Négation unaire (-) Opérateur unaire. Renvoie la négation de son opérande.
+      Si vaut 3, renvoie -3.x-x <br />
+      Unaire plus (+) Opérateur unaire. Tente de convertir l’opérande en nombre,
+      s’il ne l’est pas déjà. +"3" Retourne.3 +true Retourne.1 <br />
+
+      Opérateur d’exponentiation (**) Calcule la puissance à la puissance, C’est
+      baseexponentbase^exponent 2 ** 3 Retourne. Retourne. 810 ** -10.1
+    </p>
+    <hr />
+    <h1>Operateurs binaires</h1>
+    <p>
+      Les opérateurs binaires traitent les arguments comme des 32 bits (zéros et
+      uns) et travaillent au niveau de leur représentation binaire. Par exemple,
+      le nombre décimal a une représentation binaire de . Les opérateurs
+      binaires effectuent leurs opérations sur ces représentations binaires,
+      mais ils renvoient des valeurs numériques JavaScript standard.91001 <br />
+      Les opérateurs binaires en JavaScript sont les suivants : <br />
+
+      & (ET) <br />
+      | (OU) <br />
+      ^ (XOR) <br />
+      ~ (PAS) <br />
+      << (MAJ gauche) SHIFT <br />
+      >> (MAJ droite) <br />
+      >>> (Zéro remplissage à droite SHIFT) <br>
+      000 = 0; <br>
+      001 = 1; <br>
+      010 = 2; <br>
+      100 = 4; <br>
+      <h1>Tableau d'octet</h1>
+      000_000_01 = 1; <br>
+      000_000_10 = 2; <br>
+      000_001_00 = 4; <br>
+      000_010_00 = 8; <br>
+      000_100_00 = 16; <br>
+      001_000_00 = 32; <br>
+      010_000_00 = 64; <br>
+      100_000_00 = 128;
+    </p>
+    <hr />
+    <h1>Opérateurs logiques</h1>
+    <p>
+      Il existe quatre opérateurs logiques en JavaScript : (OR)||, (AND)&&,
+      (NOT)!, (Nullish Coalescing)??. Les opérateurs logiques sont généralement
+      utilisés avec des valeurs booléennes (logiques) ; lorsqu’ils le sont, ils
+      renvoient une valeur booléenne. Cependant, les opérateurs et renvoient en
+      fait la valeur de l’un des opérandes spécifiés, donc si ceux-ci sont
+      utilisés avec des valeurs non booléennes, ils peuvent renvoyer une valeur
+      non booléenne. Les opérateurs logiques sont décrits dans le tableau
+      suivant. &&|| .<br />
+      Opérateur Usage Description ET logique (&&) expr1 && expr2 Retourne s’il
+      peut être converti en ; sinon, renvoie . Ainsi, lorsqu’il est utilisé avec
+      des booléens valeurs, renvoie si les deux les opérandes sont vrais ;
+      sinon, renvoie . expr1falseexpr2&&truefalse .<br />
+      OU logique (||) expr1 || expr2 Retourne s’il peut être converti en ;
+      sinon, renvoie . Ainsi, lorsqu’il est utilisé avec des booléens valeurs,
+      renvoie si l’un ou l’autre des opérandes est vrai; Si les deux sont faux,
+      renvoie . expr1trueexpr2||truefalse . <br />
+      Logique NON (!) !expr Renvoie s’il s’agit d’un seul opérande qui peut être
+      converti À; sinon, renvoie . falsetruetrue
+    </p>
+    <hr />
+    <h1>Opérateurs BigInt</h1>
+    <p>
+      La plupart des opérateurs qui peuvent être utilisés avec le type de données travailleront également avec des valeurs (par exemple, arithmétique, comparaison, etc.). Toutefois, l’opérateur de décalage vers la droite non signé est une exception et n’est pas pris en charge. De même, certains opérateurs peuvent avoir de légères différences de comportement (par exemple, la division avec volonté arrondie vers zéro).NumberBigInt>>>BigInt</p>
+    <hr />
+    <h1>Opérateurs de chaîne</h1>
+    <p>
+      En plus des opérateurs de comparaison, qui peuvent être utilisés sur des
+      valeurs de chaîne, l’opérateur de concaténation (+) concatène deux valeurs
+      de chaîne ensemble, renvoyant une autre chaîne qui est l’union des deux
+      chaînes d’opérande
+    </p>
+    <hr />
+    <h1>Opérateur conditionnel (ternaire)</h1>
+    <p>
+      L’opérateur conditionnel est le seul opérateur JavaScript qui accepte
+      trois opérandes. L’opérateur peut avoir l’une des deux valeurs suivantes
+      en fonction d’une condition. La syntaxe est la suivante <br />
+      syntaxe condition ? val_for_true : val_for_false
+    </p>
+    <hr />
+    <h1>Opérateur virgule</h1>
+    <p>
+      L’opérateur virgule () Évalue ses deux opérandes et renvoie la valeur du
+      dernier opérande. Cet opérateur est principalement utilisé à l’intérieur
+      d’une boucle, pour permettre à plusieurs variables d’être mises à jour à
+      chaque fois dans la boucle. C’est considéré comme un mauvais style de
+      l’utiliser ailleurs, quand ce n’est pas nécessaire. Souvent, deux
+      déclarations distinctes peuvent et doivent être utilisées à la place. ,for
+    </p>
+    <hr />
+    <h1>Opérateurs unaires</h1>
+    <p>
+      Les opérateurs unaires JavaScript sont les opérateurs spéciaux qui
+      prennent en compte un seul opérande et effectuent tous les types
+      d’opérations sur cet opérande unique. Ces opérateurs incluent les
+      incréments unaires plus, les incréments unaires moins, les incréments de
+      préfixe, les incréments de postfixe, les décréments de préfixe et les
+      décréments de postfixe. <br />
+      nb: L’opérateur unaire ne renverra value que si l’objet qu’il possède
+      contient la clé valueOf, et que cette fonction, à son tour, renvoie l’une
+      des valeurs mentionnées. pour plus d'infos
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#unary_operators"
+        >Cliquer ici</a
+      >
+      <br />
+      1) unary plus(+) convert an operand into a number <br />
+      2) unary minus(-) convert an operand into a number and negate the value
+      after that <br />
+      3) prefix/postfix increments(++) add one to its operand <br />
+      4) prefix/postfix decrements(--) subtract one from its operand
+    </p>
+    <hr />
+    <h1>Operateurs relationnels</h1>
+    <p>Les opérateurs relationnels sont également connus sous le nom d’opérateurs de comparaison. Ils sont utilisés pour trouver la relation entre deux valeurs ou comparer la relation entre elles ; Sur la comparaison, ils donnent le résultat vrai ou faux.</p>
+    <p>Utilisez le mot-clé  <strong>this</strong> pour faire référence à l’objet courant. En général, fait référence à l’objet appelant dans une méthode. Utilisez soit avec le point, soit avec la notation entre crochets : this this <br>
+      syntaxe : this["propertyName"]; <br>
+      this.propertyName;
+    </p>
+    <p>Enter a number between 18 and 99:</p>
+<input type="text" name="age" size="3" onChange="validate(this, 18, 99);" />
+
+    <p>Vous pouvez utiliser l’opérateur <strong>new</strong> pour créer une instance d’un type d’objet défini par l’utilisateur ou de l’un des types d’objet intégrés. Utiliser comme suit :new</p>
+    <p>Le mot-clé <strong>super</strong> est utilisé pour appeler des fonctions sur le parent d’un objet. Il est utile avec les classes d’appeler le constructeur parent, par exemple.</p>
+    <script>
+      //const x = 1 + 2 * 3;//output 7
+      //const y = 2 * 3 + 1;//output 7
+      //console.log(x);
+      //-------------------affectation---------------------------
+      //let x = 2;
+      //const y = 3;
+
+      //console.log(x);
+      // Expected output: 2
+
+      //console.log((x = y + 1)); // 3 + 1
+      // Expected output: 4
+
+      //console.log((x = x * y)); // 4 * 3
+      // Expected output: 12
+      //-------------------affectation-soustraction------------
+      let bar = 5;
+
+      bar -= 2; // 3
+      bar -= "foo"; // NaN
+      console.log(bar);
+
+      let foo = 3n;
+      foo -= 2n; // 1n
+      console.log(foo);
+      //---------------------operateus de chaines--------------
+      console.log("my " + "string"); // console logs the string "my string".
+      //---------------------operateurs condition------------
+      let age = 22;
+      const status = age >= 18 ? "adult" : "minor";
+      console.log(status); //output adult
+      //----------------------operateurs de virgules-----------
+      /*Opérateurs de virgule
+      L’opérateur virgule () évalue chacun de ses opérandes (de gauche à droite) et renvoie la valeur du dernier opérande. Cela vous permet de créer une expression composée dans laquelle plusieurs expressions sont évaluées, la valeur finale de l’expression composée étant la valeur de la plus à droite de ses expressions membres. Ceci est couramment utilisé pour fournir plusieurs paramètres à une boucle.,for*/
+      const x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const a = [x, x, x, x, x];
+
+      for (let i = 0, j = 9; i <= j; i++, j--) {
+        // i = 0                             ^
+        console.log(`a[${i}][${j}]= ${a[i][j]}`); //output
+        /* explication
+        (i = 0; i <= 9; i++)
+        i= 0,1,2,3,4,5,6,7,8,9,10
+        a[x,x,x,x,x] => a = 5elements;
+        a[0],a[1],a[2],a[3],a[4]
+        (j = 9; i <= j; j--)
+         i <= j => i = 10elements => 10 <= 9;j--
+         j = j - 1 => j =(10,9,8,7,6,5,4,3,2,1) - 1;
+         a[x,x,x,x,x] => a = 5elements;
+         a[9],a[8],a[7],a[6],a[5]
+         a[${i}][${j}] = a[${[0],[1],[2],[3],[4]}] [${[9],[8],[7],[6],[5]}]
+         a[${i}][${j}] = ${a[i][j]} 
+         a[0][9]= 9
+         a[1][8]= 8
+         a[2][7]= 7
+         a[3][6]= 6
+         a[4][5]= 5
+        */
+      }
+      //----------------------operateur urnaire
+      const myFun = new Function("5 + 2");
+      const shape = "round";
+      const size = 1;
+      const fruits = ["Apple", "Mango", "Orange"];
+      const today = new Date();
+
+      console.log(typeof myFun); //returns "function"
+      typeof shape; // returns "string"
+      typeof size; // returns "number"
+      typeof fruits; // returns "object"
+      typeof today; // returns "object"
+      typeof doesntExist; // returns "undefined"
+
+      //unary plus
+      const m = +"22";
+      const n = 3;
+      console.log(m + n); //ouput 25
+      //increments on ajoute
+      //decrements on diminue
+      let inc = 5;
+      inc += 1;
+      console.log(inc); //output 6
+      let dec = 8;
+      dec -= 1;
+      console.log(dec); //output 7
+      //post-incre and pre-incre
+
+      let post_incre = 15;
+      post_incre++;
+      console.log(post_incre); //ouput 16
+      let pre_incr = 20;
+      ++pre_incr;
+      console.log(pre_incr); //output 21
+      let post_decr = 15;
+      post_decr--;
+      console.log(post_decr); //output 14
+      let pre_decr = 20;
+      --pre_decr;
+      console.log(pre_decr); //output 19
+      /*------------------------------------------------*/
+      /* chaque chiffre binaire est appele bit.Un groupe de huit bits est appele octet
+      13 = 8 + 4 + 1
+      8 = 000_010_00
+      4 = 000_001_00
+      1 = 000_000_01
+      13 =000_011_01
+      1101 = (8 * 1) + (4 * 1) + (1 * 0) + (1 * 1)
+      1 bit = 2 possibilites (0 ou 1)
+       2bits = 4 etat de possibilites (00/11/01/10)
+       13 = 1 + 4 + 8
+       1 = 000_000_01
+       4 = 000_001_00
+       8 = 000_010_00
+       13 =000_011_01
+       //
+       46 = 32 + 8 + 4 + 2
+       32 = 001_000_00
+       8 =  000_010_00
+       4 =  000_001_00
+       2 =  000_000_10
+       46 = 001_011_10
+       101110 =  (32 * 1) + (8 * 0) + (4 * 1)
+      */
+      //operateur binaires
+      const log = 1 << 0;
+      const error = 1 << 1;
+      const info = 1 << 2;
+      const warn = 1 << 3;
+      //log = 0001
+      //info = 0100
+      //warn = 1000
+      const flag = log | info
+      //flag = 0001 | 0100 = 0101
+       //0 | 0 = 0
+       // 0| 1 = 1
+       //0 & 1 = 0
+       //0 & 0 = 0
+       //~ permet d'inverser
+      //<< decalage a droite ex: 1 << 1 
+      //000_000_01 => 000_001_00 
+      //>> decalage a gauche
+      //console.log(1 << 2)//output(4)000_010_00
+      //console.log(1 >> 2)//output (0)000_000_01
+      /*---------------------------------------------------*/
+      //bigInt
+      // BigInt addition
+const bg = 1n + 2n; // 3n
+// Division with BigInts round towards zero
+const b = 1n / 2n; // 0n
+// Bitwise operations with BigInts do not truncate either side
+const c = 40000000000000000n >> 2n; // 10000000000000000n
+/*---------------------------------------------------*/
+//operateur relationnel
+//propNameOrNumber in objectName
+// Arrays
+const trees = ["redwood", "bay", "cedar", "oak", "maple"];
+0 in trees; // returns true
+3 in trees; // returns true
+6 in trees; // returns false
+"bay" in trees; // returns false
+// (you must specify the index number, not the value at that index)
+"length" in trees; // returns true (length is an Array property)
+
+// built-in objects
+"PI" in Math; // returns true
+const myString = new String("coral");
+"length" in myString; // returns true
+
+// Custom objects
+const mycar = { make: "Honda", model: "Accord", year: 1998 };
+"make" in mycar; // returns true
+"model" in mycar; // returns true
+/*L’opérateur instanceof renvoie si l’objet spécifié est du type d’objet spécifié. La syntaxe est la suivante : true*/
+//objectName instanceof objectType
+const theDay = new Date(1995, 12, 17);
+if (theDay instanceof Date) {
+  // statements to execute
+}
+function validate(obj, lowval, hival) {
+  if (obj.value < lowval || obj.value > hival) {
+    console.log("Invalid Value!");
+  }
+}
+console.log(this)
+//----------------
+//const objectName = new ObjectType(param1, param2, /* …, */ paramN);
+//-------------
+//super(args); // calls the parent constructor.
+//super.functionOnParent(args);
+    </script>
+  </body>
+</html>

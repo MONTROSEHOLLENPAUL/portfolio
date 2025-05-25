@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strict mode</title>
+  </head>
+  <body>
+    <h1>Strict mode</h1>
+    <p>Le mode strict de JavaScript est un moyen d’opter pour une variante restreinte de JavaScript, ce qui permet implicitement de se désinscrire du « mode bâclé ». Le mode strict n’est pas seulement un sous-ensemble : il a intentionnellement une sémantique différente de celle du code normal. Les navigateurs qui ne prennent pas en charge le mode strict exécuteront du code en mode strict avec un comportement différent de celui des navigateurs qui le font, alors ne comptez pas sur le mode strict sans tester les fonctionnalités pour la prise en charge des aspects pertinents du mode strict. Le code en mode strict et le code en mode non strict peuvent coexister afin que les scripts puissent passer en mode strict de manière incrémentielle. <br>
+
+      Le mode strict apporte plusieurs modifications à la sémantique JavaScript normale : <br>
+      Élimine certaines erreurs silencieuses JavaScript en les remplaçant par des erreurs de levée. <br>
+Corrige les erreurs qui rendent difficile l’optimisation des moteurs JavaScript : le code en mode strict peut parfois s’exécuter plus rapidement qu’un code identique qui n’est pas en mode strict. <br>
+Interdit certaines syntaxes susceptibles d’être définies dans les futures versions d’ECMAScript.
+    </p>
+    <script>
+      //----------------------------mode strict----------------------
+//x = 20; en executant ce programme en utilisant le mot var par defaut ex
+// if(true){x = 20} console.log(x)
+//console.log(x);
+//"use strict";
+//y = 40; //ca declenche une erreur is not define
+//console.log(y);
+
+    "use strict";
+const sumWithOctal = 0o10 + 8;
+console.log(sumWithOctal); // 16
+
+"use strict";
+const o = { p: 1, p: 2 }; // syntax error prior to ECMAScript 2015
+console.log(o)
+
+function foo(a,b){
+  //console.log(arguments)
+  a = 68
+  "use strict";
+  console.log(arguments[0], arguments[1])
+  a = 40;
+  console.log(arguments[0], arguments[1])//1,3 valeur enchangable en utilisant le mot use strict
+}
+foo(1,3)
+    </script>
+  </body>
+</html>

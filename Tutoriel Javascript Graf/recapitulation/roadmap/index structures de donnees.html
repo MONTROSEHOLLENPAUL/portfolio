@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Structure de donnée</title>
+  </head>
+  <body>
+    <h1>Structures de données</h1>
+    <p>
+      Une structure de données est un format permettant d’organiser, de gérer et
+      de stocker des données de manière à permettre un accès et une modification
+      efficaces. JavaScript a des structures de données primitives (intégrées)
+      et non primitives (non intégrées). Les structures de données primitives
+      sont fournies par défaut avec le langage de programmation et vous pouvez
+      les implémenter prêtes à l’emploi (comme les tableaux et les objets). Les
+      structures de données non primitives ne sont pas fournies par défaut et
+      vous devez les coder si vous voulez les utiliser.
+    </p>
+    <hr />
+    <h1>Collections indexées</h1>
+    <p>
+      Les collections indexées sont des collections qui ont des indices
+      numériques, c’est-à-dire des ensembles de données qui sont triés par une
+      valeur d’indice. En JavaScript, un tableau est une collection indexée. Un
+      tableau est un ensemble ordonné de valeurs qui possède un index numérique.
+    </p>
+    <hr />
+    <h1>Tableaux</h1>
+    <p>
+      Les tableaux sont des objets qui stockent une collection d’éléments et
+      peuvent être affectés à une variable. Ils ont leurs méthodes qui peuvent
+      effectuer des opérations sur le tableau.
+    </p>
+    <hr />
+    <h1>Données structurées</h1>
+    <p>
+      Les données structurées sont utilisées par les moteurs de recherche, comme
+      Google, pour comprendre le contenu de la page, ainsi que pour recueillir
+      des informations sur le Web et le monde en général. <br />
+
+      Il est également codé à l’aide d’un balisage dans la page à laquelle les
+      informations s’appliquent.
+    </p>
+    <hr />
+    <h1>JSON</h1>
+    <p>
+      JavaScript Object Notation (JSON) est un format texte standard permettant
+      de représenter des données structurées basées sur la syntaxe d’objet
+      JavaScript. Il est couramment utilisé pour transmettre des données dans
+      des applications Web (par exemple, envoyer certaines données du serveur au
+      client, afin qu’elles puissent être affichées sur une page Web, ou vice
+      versa). <br />
+      Comme décrit ci-dessus, JSON est une chaîne dont le format ressemble
+      beaucoup au format littéral d’objet JavaScript. Vous pouvez inclure les
+      mêmes types de données de base dans JSON que dans un objet JavaScript
+      standard : chaînes, nombres, tableaux, booléens et autres littéraux
+      d’objet. Cela vous permet de construire une hiérarchie de données
+    </p>
+    <hr />
+    <h1>Collections à clé</h1>
+    <p>
+      Les collections à clé sont des collections de données qui sont triées par
+      clé et non par index. Ils sont de nature associative. Les objets map et
+      set sont des collections à clé et peuvent être itérés dans l’ordre
+      d’insertion.
+    </p>
+    <p>
+      Map Properties and Methods in JavaScript JavaScript's Map has in-built
+      properties and methods that make it easy to use. Here are some of the
+      common ones: <br />
+
+      Use the size property to know how many elements are in a Map: <br />
+      Search an element with the has(key) method: <br />
+      Remove an element with the delete(key) method: <br />
+      Use the clear() method to remove all the elements from the Map at once:
+    </p>
+    <h1>Map vs. Object: When should you use them?</h1>
+    <p>
+      Map has characteristics of both object and array. However, Map is more
+      like an object than array due to the nature of storing data in the
+      key-value format. <br />
+
+      The similarity with objects ends here though. As you've seen, Map is
+      different in a lot of ways. So, which one should you use, and when? How do
+      you decide? <br />
+
+      <strong>Use Map when:</strong> <br />
+
+      Your needs are not that simple. You may want to create keys that are
+      non-strings. Storing an object as a key is a very powerful approach. Map
+      gives you this ability by default. <br />
+      You need a data structure where elements can be ordered. Regular objects
+      do not maintain the order of their entries. <br />
+      You are looking for flexibility without relying on an external library
+      like lodash. You may end up using a library like lodash because we do not
+      find methods like has(), values(), delete(), or a property like size with
+      a regular object. Map makes this easy for you by providing all these
+      methods by default. <br />
+      <strong>Use an object when:</strong> <br />
+
+      You do not have any of the needs listed above. <br />
+      You rely on JSON.parse() as a Map cannot be parsed with it.
+    </p>
+    <h1>Set Properties and Methods in JavaScript</h1>
+    <p>
+      Set has methods to add an element to it, delete elements from it, check if
+      an element exists in it, and to clear it completely: <br />
+
+      Use the size property to know the size of the Set. It returns the number
+      of elements in it: <br />
+      Use the add(element) method to add an element to the Set:
+    </p>
+    <h1>How to Iterate Over a Set in JavaScript</h1>
+    <p>
+      Set has a method called values() which returns a SetIterator to get all
+      its values:
+    </p>
+    <h1>Sets and Arrays in JavaScript</h1>
+    <p>
+      An array, like a Set, allows you to add and remove elements. But Set is
+      quite different, and is not meant to replace arrays. <br />
+
+      The major difference between an array and a Set is that arrays allow you
+      to have duplicate elements. Also, some of the Set operations like delete()
+      are faster than array operations like shift() or splice(). <br />
+
+      Think of Set as an extension of a regular array, just with more muscles.
+      The Set data structure is not a replacement of the array. Both can solve
+      interesting problems.
+    </p>
+    <hr />
+    <h1>Carte faible(Weak map)</h1>
+    <p>
+      WeakMap est une collection de type Map de paires clé/valeur dont les clés
+      doivent être des objets, il les supprime une fois qu’elles deviennent
+      inaccessibles par d’autres moyens
+    </p>
+    <h1>Résumé</h1>
+    <p>
+      WeakMap est une collection de type -qui n’autorise que les objets en tant
+      que clés et les supprime avec la valeur associée une fois qu’ils
+      deviennent inaccessibles par d’autres moyens.Map <br />
+
+      WeakSet est une collection de type -like qui stocke uniquement les objets
+      et les supprime une fois qu’ils deviennent inaccessibles par d’autres
+      moyens.Set <br />
+
+      Leurs principaux avantages sont qu’ils ont une faible référence aux
+      objets, de sorte qu’ils peuvent facilement être retirés par le
+      ramasse-miettes. <br />
+
+      Cela se fait au prix de ne pas avoir de soutien pour , , ,
+      ...clearsizekeysvalues <br />
+
+      WeakMap et sont utilisés comme structures de données « secondaires » en
+      plus du stockage d’objets « primaire ». Une fois l’objet supprimé du
+      stockage principal, s’il n’est trouvé que sous la forme de la clé de ou
+      dans un , il sera nettoyé automatiquement.WeakSet WeakMap WeakSet
+    </p>
+    <hr />
+    <h1>Set</h1>
+    <p>
+      L’objet Set vous permet de stocker des valeurs uniques de n’importe quel
+      type, qu’il s’agisse de valeurs primitives ou de références d’objet.
+    </p>
+    <p>
+      Set Les objets sont des collections de valeurs. Une valeur de l’ensemble
+      ne peut apparaître qu’une seule fois ; Il est unique dans la collection de
+      l’ensemble. Vous pouvez parcourir les éléments d’un ensemble dans l’ordre
+      d’insertion. L’ordre d’insertion correspond à l’ordre dans lequel chaque
+      élément a été inséré dans l’ensemble par la méthode add() avec succès
+      (c’est-à-dire qu’il n’y avait pas déjà d’élément identique dans l’ensemble
+      lors de l’appel).add() <br />
+      <a href="https://exploringjs.com/impatient-js/ch_sets.html"
+        >Pour plus d'info</a
+      >
+    </p>
+    <hr />
+    <h1>Weak Set (Ensemble faible)</h1>
+    <p>
+      WeakSet Les objets sont des collections d’objets. Tout comme avec , chaque
+      objet de a ne peut apparaître qu’une seule fois ; Tous les objets de la
+      collection d’A sont uniques.SetsWeakSetWeakSet
+    </p>
+    <p>
+      Les valeurs des WeakSets doivent pouvoir être récupérées. La plupart des
+      types de données primitifs peuvent être créés arbitrairement et n’ont pas
+      de durée de vie, ils ne peuvent donc pas être stockés. Les objets et les
+      symboles non enregistrés peuvent être stockés car ils peuvent être
+      collectés dans les ordures. <br />
+
+      Les principales différences par rapport à l’objet Set sont les suivantes :
+      <br />
+
+      WeakSetsont des collections d’objets et de symboles uniquement. Ils ne
+      peuvent pas contenir de valeurs arbitraires de quelque type que ce soit,
+      comme le peuvent les ensembless. <br />
+      Le est faible, ce qui signifie que les références aux objets dans a sont
+      maintenues faiblement. S’il n’existe pas d’autres références à une valeur
+      stockée dans le fichier Ces valeurs peuvent faire l’objet d’un nettoyage
+      de la mémoire. WeakSetWeakSetWeakSet <br />
+      <a href="https://javascript.info/weakmap-weakset">Plus d'info</a>
+    </p>
+    <script>
+      function last(n) {
+        if (n <= 2) return 1;
+        return last(n - 1) + last(n - 2);
+      }
+      console.log(last(4)); //output
+      function canSum(targetSum, numbers) {
+        if (targetSum === 0) return true;
+        for (let key of numbers) {
+        }
+      }
+      //console.log(canSum(3, [3, 6, 9]));
+      /*----------------------------------------*/
+      let fruits = ["Apple", "Mango", "Banana"];
+      console.log(fruits[0]); //output Appple
+      console.log(fruits[1]); //output Mango
+      //obtention sur la longueur du tableau
+      console.log(fruits.length); //output 3
+      //iteration sur les tableaux
+      for (let i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]); //output Apple,Mango,Banana
+      }
+      //methode forEach
+      fruits.forEach((fruit) => {
+        console.log(fruit); //output Apple,Mango,Banana
+      });
+      //methode matriciel (push,pop,...)
+      let numbers = new Array("1", "2");
+      numbers.push("3");
+      console.log(numbers); //output ["1","2","3"]
+      let alpha = new Array("A", "B", "C");
+      let alp = alpha.pop();
+      console.log(alp); //output C
+      let conc = alpha.concat("D", "E");
+      console.log(conc); //output ["A","B","C","D","E"]
+      let join = alpha.join("-");
+      console.log(join); //output A-B
+      let myArray = new Array("West", "East", "South");
+      myArray.sort();
+      console.log(myArray); //output East,South,West
+      let myArr = ["a", "b", "a", "b", "a"];
+      console.log(myArr.indexOf("b")); //output 1
+      let first = myArr.shift();
+      console.log(first); //output a
+      let myArr1 = ["a", "b", "c"];
+      let a2 = myArr1.map(function (item) {
+        return item.toUpperCase();
+      });
+      console.log(a2); //output [A,B,C]
+      let myArr2 = ["a", 10, "b", 20, "c", 30];
+      let a3 = myArr2.filter(function (item) {
+        return typeof item === "number";
+      });
+      console.log(a3); //output [10,20,30]
+      //----------------jSon------------------
+      let companies = {
+        squadName: "Super hero squad",
+        homeTown: "Metro City",
+        formed: 2016,
+        secretBase: "Super tower",
+        active: true,
+        members: [
+          {
+            name: "Molecule Man",
+            age: 29,
+            secretIdentity: "Dan Jukes",
+            powers: ["Radiation resistance", "Turning tiny", "Radiation blast"],
+          },
+          {
+            name: "Madame Uppercut",
+            age: 39,
+            secretIdentity: "Jane Wilson",
+            powers: [
+              "Million tonne punch",
+              "Damage resistance",
+              "Superhuman reflexes",
+            ],
+          },
+          {
+            name: "Eternal Flame",
+            age: 1000000,
+            secretIdentity: "Unknown",
+            powers: [
+              "Immortality",
+              "Heat Immunity",
+              "Inferno",
+              "Teleportation",
+              "Interdimensional travel",
+            ],
+          },
+        ],
+      };
+
+      console.log(companies);
+      console.log(companies.members[1].name); //output Madame Uppercut
+      //Stocker des donnees
+      let id = {
+        name: "Molecule Man",
+        age: 29,
+        job: "Developer",
+        skills: [10, 40, true, "logic", null],
+      };
+      let toJsn = JSON.stringify(id);
+      localStorage.setItem("idJSON", toJsn);
+      console.log(toJsn); //tranformatn en fichier JSON
+      //Recevoir des donnees
+      let fromJSON = localStorage.getItem("idJSON");
+      let obj = JSON.parse(fromJSON);
+      console.log(obj);
+      //exo
+      /*creer un fichier JSON qui represente un article (titre, contenu, auteur)
+      et ses commentaires(username,contenu,reponses*/
+      /*---------------------------------------------*/
+      //collection indexee
+      const map = new Map();
+      console.log(map);
+      const freeCodeCampBlog = new Map([
+        ["name", "freeCodeCamp"],
+        ["type", "blog"],
+        ["writer", "Tapas Adhikary"],
+      ]);
+      console.log(freeCodeCampBlog); //output Map(3){'name' =>'freeCodeCamp','type' => 'blog','writer' => 'Tapas Adhikary'}
+
+      /*How to Add values to a Map in JavaScript
+To add value to a Map, use the set(key, value) method.
+
+The set(key, value) method takes two parameters, key and value, where the key and value can be of any type, a primitive (boolean, string, number, etc.) or an object:*/
+      // Add values to the map
+      map.set("name", "freeCodeCamp");
+      map.set("type", "blog");
+      map.set("writer", "Tapas Adhikary");
+      /*How to Get values from a Map in JavaScript
+To get a value from a Map, use the get(key) method:*/
+      console.log(map.get("name")); //ouput freeCodeCamp
+      // create a Map
+      const funMap = new Map();
+
+      funMap.set(360, "My House Number"); // number as key
+      funMap.set(true, "I write blogs!"); // boolean as key
+
+      let object = { name: "tapas" };
+      funMap.set(object, true); // object as key
+
+      console.log(funMap); //output Map(3) {360 => "My House Number",  true => "I write blogs!",  {…} => true}
+      // Create an empty object
+      const funObj = {};
+
+      // add a property. Note, passing the key as a number.
+      funObj[360] = "My House Number";
+
+      // It returns true because the number 360 got converted into the string '360' internally!
+      console.log(funObj[360] === funObj["360"]); //output true
+      console.log("size of the map is", map.size); //ouput
+      // returns true, if map has an element with the key, 'John'
+      console.log(map.has("John")); //output false
+
+      // returns false, if map doesn't have an element with the key, 'Tapas'
+      console.log(map.has("Tapas")); //output false
+      map.delete("Sam"); // removes the element with key, 'Sam'.
+      // Clear the map by removing all the elements
+      map.clear();
+
+      map.size; // It will return, 0
+      const ageMap = new Map([
+        ["Jack", 20],
+        ["Alan", 34],
+        ["Bill", 10],
+        ["Sam", 9],
+      ]);
+      console.log(ageMap.keys());
+
+      // Output:
+
+      // MapIterator {"Jack", "Alan", "Bill", "Sam"}
+      console.log(ageMap.values());
+
+      // Output
+
+      // MapIterator {20, 34, 10, 9}
+      console.log(ageMap.entries());
+
+      // Output
+
+      // MapIterator {"Jack" => 20, "Alan" => 34, "Bill" => 10, "Sam" => 9}
+      // with forEach
+      ageMap.forEach((value, key) => {
+        console.log(`${key} is ${value} years old!`);
+      });
+
+      // with for-of
+      for (const [key, value] of ageMap) {
+        console.log(`${key} is ${value} years old!`);
+      }
+      //output Jack is 20 years old!,Alan is 34 years old!,Bill is 10 years old!,Sam is 9 years old!
+      /*How to Convert an Object into a Map in JavaScript
+You may encounter a situation where you need to convert an object to a Map-like structure. You can use the method entries of Object to do that:*/
+      const address = {
+        Tapas: "Bangalore",
+        James: "Huston",
+        Selva: "Srilanka",
+      };
+
+      const addressMap = new Map(Object.entries(address));
+      /*How to Convert a Map into an Object in JavaScript
+If you want to do the reverse, you can use the fromEntries method:*/
+      Object.fromEntries(map);
+      /*How to Convert a Map into an Array in JavaScript
+There are a couple of ways to convert a map into an array:
+
+Using Array.from(map):
+Using the spread operator:*/
+      const maps = new Map();
+      maps.set("milk", 200);
+      maps.set("tea", 300);
+      maps.set("coffee", 500);
+
+      console.log(Array.from(maps));
+      /*-----------------------------------------------*/
+      /*set : vous permet de stocker des valeurs uniques de tout type,qu'il s'agisse de valeurs primitives ou de references d'object*/
+      //How to Create and Initialize a Set in JavaScript A new Set can be created like this:
+      const set = new Set();
+      console.log(set); //output Set(0) {}
+      const fruteSet = new Set(["🍉", "🍎", "🍈", "🍏"]);
+      console.log(fruteSet); //output Set(4) {"🍉", "🍎", "🍈", "🍏"}
+      // Create a set - saladSet
+      const saladSet = new Set();
+
+      // Add some vegetables to it
+      saladSet.add("🍅"); // tomato
+      saladSet.add("🥑"); // avocado
+      saladSet.add("🥕"); // carrot
+      saladSet.add("🥒"); // cucumber
+
+      console.log(saladSet);
+
+      // Output
+
+      // Set(4) {"🍅", "🥑", "🥕", "🥒"}
+      // The salad has a🥕, so returns true
+      console.log("Does the salad have a carrot?", saladSet.has("🥕"));
+
+      // The salad doesn't have a🥦, so returns false
+      console.log("Does the salad have broccoli?", saladSet.has("🥦"));
+      saladSet.delete("🥑");
+      console.log("I do not like 🥑, remove from the salad:", saladSet); //output Set(3) {"🍅", "🥕", "🥒"}
+      saladSet.clear();
+      /*How to Iterate Over a Set in JavaScript*/
+      // Create a Set
+      const houseNos = new Set([360, 567, 101]);
+
+      // Get the SetIterator using the `values()` method
+      console.log(houseNos.values()); //output SetIterator {360, 567, 101}
+      /*We can use a forEach or for-of loop on this to retrieve the values.
+
+Interestingly, JavaScript tries to make Set compatible with Map. That's why we find two of the same methods as Map, keys() and entries().
+
+As Set doesn't have keys, the keys() method returns a SetIterator to retrieve its values:*/
+      //console.log(houseNos.keys());
+
+      // Output
+
+      // console.log(houseNos.keys());
+      /*With Map, the entries() method returns an iterator to retrieve key-value pairs. Again there are no keys in a Set, so entries() returns a SetIterator to retrieve the value-value pairs:*/
+      console.log(houseNos.entries());
+
+      // Output
+
+      // SetIterator {360 => 360, 567 => 567, 101 => 101}
+      /*How to Enumerate over a Set in JavaScript
+We can enumerate over a Set using forEach and for-of loops:*/
+      // with forEach
+
+      houseNos.forEach((value) => {
+        console.log(value);
+      });
+
+      // with for-of
+
+      for (const value of houseNos) {
+        console.log(value);
+      }
+      //output 360 ,567, 101
+      /*How to Convert a Set into an array in JavaScript
+Converting a Set into an array is simple:*/
+      const arr = [...houseNos];
+      console.log(arr); //output
+      /*Unique values from an array using the Set in JavaScript
+Creating a Set is a really easy way to remove duplicate values from an array:*/
+      // Create a mixedFruit array with a few duplicate fruits
+      const mixedFruit = ["🍉", "🍎", "🍉", "🍈", "🍏", "🍎", "🍈"];
+
+      // Pass the array to create a set of unique fruits
+      const mixedFruitSet = new Set(mixedFruit);
+
+      console.log(mixedFruitSet); //output Set(4) {"🍉", "🍎", "🍈", "🍏"}
+      /*Set and Object in JavaScript
+A Set can have elements of any type, even objects:*/
+      // Create a person object
+      const person = {
+        name: "Alex",
+        age: 32,
+      };
+
+      // Create a set and add the object to it
+      const pSet = new Set();
+      pSet.add(person);
+      console.log(pSet); //output
+      // Change the name of the person
+      person.name = "Bob";
+
+      // Add the person object to the set again
+      pSet.add(person);
+      console.log(pSet); //output
+      /*-----------------------------------------------*/
+      const www = new WeakMap();
+      console.log(www);
+      /*La première différence entre Map et WeakMap est que les clés doivent être des objets, et non des valeurs primitives :*/
+      let weakMap = new WeakMap();
+
+      let objt = {};
+
+      weakMap.set(objt, "ok"); // works fine (object key)
+
+      // can't use a string as the key
+      //weakMap.set("test", "Whoops"); // Error, because "test" is not an object
+      //exo
+      let messages = [
+        { text: "Hello", from: "John" },
+        { text: "How goes?", from: "John" },
+        { text: "See you soon", from: "Alice" },
+      ];
+      /*Votre code peut y accéder, mais les messages sont gérés par le code de quelqu’un d’autre. De nouveaux messages sont ajoutés, les anciens sont supprimés régulièrement par ce code, et vous ne connaissez pas les moments exacts où cela se produit.
+
+Maintenant, quelle structure de données pourriez-vous utiliser pour stocker des informations indiquant si le message « a été lu » ? La structure doit être bien adaptée pour donner la réponse « a-t-il été lu ? » pour l’objet de message donné.
+
+P.S. Lorsqu’un message est supprimé de , il devrait également disparaître de votre structure.messages
+
+P.P.S. Nous ne devrions pas modifier les objets de message, y ajouter nos propriétés. Comme ils sont gérés par le code de quelqu’un d’autre, cela peut avoir de mauvaises conséquences.*/
+      let readMessages = new WeakSet();
+
+      // two messages have been read
+      readMessages.add(messages[0]);
+      readMessages.add(messages[1]);
+      // readMessages has 2 elements
+
+      // ...let's read the first message again!
+      readMessages.add(messages[0]);
+      // readMessages still has 2 unique elements
+
+      // answer: was the message[0] read?
+      alert("Read message 0: " + readMessages.has(messages[0])); // true
+
+      messages.shift();
+      // now readMessages has 1 element (technically memory may be cleaned later)
+      //exo 2
+      /*La question qui se pose maintenant est la suivante : quelle structure de données suggérez-vous pour stocker l’information : « quand le message a-t-il été lu ? ».
+
+Dans la tâche précédente, nous n’avions besoin que d’enregistrer le fait « oui/non ». Maintenant, nous devons stocker la date, et elle ne devrait rester en mémoire que jusqu’à ce que le message soit ramassé par la mémoire.
+
+P.S. Les dates peuvent être stockées en tant qu’objets de classe intégrée, que nous aborderons plus tard.Date*/
+      let readMap = new WeakMap();
+
+      readMap.set(messages[0], new Date(2017, 1, 1));
+      // Date object we'll study later
+      /*---------------------------------------------------*/
+      /*set*/
+      const st = new Set();
+      console.log(st);
+      const a = new Set([1, 2, 3]);
+      const b = new Map([
+        [1, "one"],
+        [2, "two"],
+        [4, "four"],
+      ]);
+      console.log(a.union(b)); // Set(4) {1, 2, 3, 4}
+
+      const mySet1 = new Set();
+
+      mySet1.add(1); // Set(1) { 1 }
+      mySet1.add(5); // Set(2) { 1, 5 }
+      mySet1.add(5); // Set(2) { 1, 5 }
+      mySet1.add("some text"); // Set(3) { 1, 5, 'some text' }
+      const o = { a: 1, b: 2 };
+      mySet1.add(o);
+
+      mySet1.add({ a: 1, b: 2 }); // o is referencing a different object, so this is okay
+
+      mySet1.has(1); // true
+      mySet1.has(3); // false, since 3 has not been added to the set
+      mySet1.has(5); // true
+      mySet1.has(Math.sqrt(25)); // true
+      mySet1.has("Some Text".toLowerCase()); // true
+      mySet1.has(o); // true
+
+      mySet1.size; // 5
+
+      mySet1.delete(5); // removes 5 from the set
+      mySet1.has(5); // false, 5 has been removed
+
+      mySet1.size; // 4, since we just removed one value
+
+      mySet1.add(5); // Set(5) { 1, 'some text', {...}, {...}, 5 } - a previously deleted item will be added as a new item, it will not retain its original position before deletion
+
+      console.log(mySet1); // Set(5) { 1, "some text", {…}, {…}, 5 }
+    </script>
+  </body>
+</html>

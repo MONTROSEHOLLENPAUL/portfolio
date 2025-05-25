@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type de moulage</title>
+  </head>
+  <body>
+    <h1>Type de Moulage</h1>
+    <p>
+      La conversion de type (ou typecasting) désigne le transfert de données
+      d’un type de données à un autre. La conversion implicite se produit
+      lorsque le compilateur (pour les langages compilés) ou le runtime (pour
+      les langages de script comme JavaScript) convertit automatiquement les
+      types de données. Le code source peut également exiger explicitement
+      qu’une conversion ait lieu.
+    </p>
+    <h1>Moulage de type explicite</h1>
+    <p>
+      La conversion de type consiste à transférer des données d’un type de
+      données à un autre en spécifiant explicitement le type vers lequel
+      convertir les données données. La conversion de type explicite est
+      normalement effectuée pour rendre les données compatibles avec d’autres
+      variables. Des exemples de méthodes de conversion de caractères sont , ,
+      .parseInt()parseFloat()toString()
+    </p>
+    <h1>ParseInt ()</h1>
+    <p>
+      Il convertit une valeur donnée en un nombre entier, s’il n’est pas
+      possible de convertir la valeur NaN de retour.
+    </p>
+    <h1>ParseFloat ()</h1>
+    <p>
+      La fonction ParseFloat () renvoie un nombre à virgule flottante qui
+      analyse une chaîne. Cette fonction détermine si le premier caractère d’une
+      chaîne particulière est un nombre.
+    </p>
+    <h1>Conversion de type implicite</h1>
+    <p>
+      La conversion de type implicite se produit lorsque le compilateur ou le
+      runtime convertit automatiquement les types de données. JavaScript est un
+      langage à typage lâche et la plupart du temps, les opérateurs
+      convertissent automatiquement une valeur en le bon type.
+    </p>
+    <p>
+      La coercition implicite de Javascript fait simplement référence à
+      Javascript qui tente de contraindre un type de valeur inattendu au type
+      attendu. Ainsi, vous pouvez passer une chaîne là où il attend un nombre,
+      un objet où il attend une chaîne, etc., et il essaiera de le convertir en
+      le bon type. Il s’agit d’une fonctionnalité Javascript qu’il vaut mieux
+      éviter.
+    </p>
+    <h1>Type Conversion/Coercition</h1>
+    <p>
+      La coercition de type est la conversion automatique ou implicite de
+      valeurs d’un type de données à un autre (par exemple, des chaînes en
+      nombres). La conversion de type est similaire à la coercition de type, car
+      elle convertit les valeurs d’un type de données à un autre, avec une
+      différence clé : la coercition de type est implicite. En revanche, la
+      conversion de type peut être implicite ou explicite.
+    </p>
+    <script>
+      /*Type Conversions
+            La plupart du temps, les opérateurs et les fonctions convertissent automatiquement les valeurs qui leur sont données dans le bon type.
+            Par exemple, convertit automatiquement n’importe quelle valeur en chaîne pour l’afficher. Les opérations mathématiques convertissent les valeurs en nombres.*/
+      //------------------------------------------------------
+      /*Conversion de chaînes
+            La conversion de chaîne se produit lorsque nous avons besoin de la forme de chaîne d’une valeur.
+            Par exemple, le fait pour afficher la valeur.alert(value)
+            Nous pouvons également appeler la fonction pour convertir une valeur en chaîne de caractères :String(value)*/
+      /*let value = true;
+                  alert(typeof value); // boolean
+
+                  value = String(value); // now value is a string "true"
+                  alert(typeof value); // string*/
+      const value = true;
+      console.log(typeof value); //boolean
+      const val = String(value);
+      console.log(typeof val); //string
+      /*String(value) OR  variableName.toString()*/
+      //---------------------------------------------------
+      /*Conversion numérique
+            La conversion numérique dans les fonctions et expressions mathématiques se fait automatiquement.
+            Par exemple, lorsque la division est appliquée à des non-nombres */
+      const num = "123";
+      console.log(typeof num); //string
+      const num_1 = Number(num);
+      console.log(typeof num_1); //become a number
+      /*true and false =	1 et 0
+            string	Les espaces blancs (y compris les espaces, les tabulations,
+            les sauts de ligne, etc.) du début et de la fin sont supprimés.
+            Si la chaîne restante est vide, le résultat est . Dans le cas contraire,
+            le nombre est « lu » à partir de la chaîne. Une erreur donne .\t\n0NaN*/
+      //------------------------------------------------------
+      /*Conversion booléenne
+            La conversion booléenne est la plus simple.
+            Cela se produit dans les opérations logiques (plus tard, nous rencontrerons des tests de condition et d’autres choses similaires), mais peut également être effectué explicitement avec un appel à .Boolean(value)
+
+            La règle de conversion :
+            Les valeurs qui sont intuitivement « vides », comme , une chaîne vide, , , et , deviennent .0nullundefinedNaNfalse
+            D’autres valeurs deviennent .true*/
+      console.log(Boolean(1)); // true
+      console.log(Boolean(0)); // false
+
+      console.log(Boolean("hello")); // true
+      console.log(Boolean("")); // false
+      /*Attention : la chaîne avec zéro « 0 » est vraie
+            Certains langages (notamment PHP) traitent comme .
+            Mais en JavaScript, une chaîne non vide est toujours ."0"falsetrue*/
+
+      console.log(Boolean("0")); // true
+      console.log(Boolean(" ")); // spaces, also true (any non-empty string is true)
+      //----------------------------------------------------------
+      /*Conversion de dates en nombres
+            La méthode globale Number()peut être utilisée pour convertir des dates en nombres.*/
+
+      const d = new Date();
+      Number(d); // returns 1404568027739
+      console.log(d);
+      /*La méthode date getTime() fait de même.*/
+
+      const D = new Date();
+      D.getTime(); // returns 1404568027739
+      console.log(D);
+      /*getDate()	Get the day as a number (1-31)
+            getDay()	Get the weekday a number (0-6)
+            getFullYear()	Get the four digit year (yyyy)
+            getHours()	Get the hour (0-23)
+            getMilliseconds()	Get the milliseconds (0-999)
+            getMinutes()	Get the minutes (0-59)
+            getMonth()	Get the month (0-11)
+            getSeconds()	Get the seconds (0-59)
+            getTime()	Get the time (milliseconds since January 1, 1970)*/
+      const myTime = new Date();
+      const seconds = myTime.getSeconds();
+      console.log(`${seconds} : seconds`);
+      /*ParseInt ()
+             Il convertit une valeur donnée en un nombre
+             entier, s’il n’est pas possible de convertir
+             la valeur NaN de retour.*/
+      console.log(`parseInt parseInt(24)` + parseInt(24)); //la sortie est24
+      console.log(`parseInt parseInt(12.4)` + parseInt(12.4)); //12
+      /*ParseFloat ()
+      La fonction ParseFloat () renvoie un nombre 
+      à virgule flottante qui analyse une chaîne. 
+      Cette fonction détermine si le premier 
+      caractère d’une chaîne particulière est un 
+      nombre.*/
+      console.log(`parseFloat return a number float (24)` + parseFloat(24)); //la sortie est24
+      console.log(`parseFloat return a number float (12.4)` + parseFloat(12.4)); //12
+      /*Conversion de type implicite
+       La conversion de type implicite se 
+       produit lorsque le compilateur ou le 
+       runtime convertit automatiquement les 
+       types de données. JavaScript est un 
+       langage à typage lâche et la plupart du 
+       temps, les opérateurs convertissent 
+       automatiquement une valeur en le bon type.*/
+      console.log("4" * 3);
+      //let x = prompt();
+      /*La coercition implicite de Javascript 
+      fait simplement référence à Javascript 
+      qui tente de contraindre un type de valeur
+      inattendu au type attendu. Ainsi, vous 
+      pouvez passer une chaîne là où il attend 
+      un nombre, un objet où il attend une 
+      chaîne, etc., et il essaiera de le 
+      convertir en le bon type. Il s’agit d’une 
+      fonctionnalité Javascript qu’il vaut 
+      mieux éviter.*/
+      3 * "3"; //9
+
+      1 + "2" + 1; //121
+
+      true + true; //2
+      10 - true; //9
+
+      const foo = {
+        valueOf: () => 2,
+      };
+      3 + foo; // 5
+      4 * foo; // 8
+
+      const bar = {
+        toString: () => " promise is a boy :)",
+      };
+      1 + bar; // "1 promise is a boy :)"
+
+      4 * []; // 0
+      4 * [2]; // 8
+      4 + [2]; // "42"
+      4 + [1, 2]; // "41,2"
+      4 * [1, 2]; // NaN
+
+      "string" ? 4 : 1; // 4
+      undefined ? 4 : 1; // 1
+      /*La coercition de type est la conversion
+       automatique ou implicite de valeurs d’un
+       type de données à un autre (par exemple,
+       des chaînes en nombres). La conversion 
+       de type est similaire à la coercition de 
+       type, car elle convertit les valeurs d’un
+        type de données à un autre, avec une 
+        différence clé : la coercition de type 
+        est implicite. En revanche, la 
+        conversion de type peut être implicite 
+        ou explicite.*/
+      let a = 9;
+      let b = "2";
+      let c = a + b;
+      console.log(`answer is : ${c}`); //92
+      let e = 5;
+      let f = "8";
+      f = parseInt(f, 10);
+      let g = e + f;
+      console.log(`${g} is answer `); //13
+      let h = 3;
+      let i = "5";
+      let j = h + i;
+      console.log(`${j} another answer `);
+      console.log(parseFloat(j));
+    </script>
+  </body>
+</html>

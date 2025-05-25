@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function</title>
+  </head>
+  <body>
+    <h1>functions</h1>
+    <p>
+      Des fonctions existent pour que nous puissions réutiliser le code. Ce sont
+      des blocs de code qui s’exécutent chaque fois qu’ils sont appelés. Chaque
+      fonction est généralement écrite pour effectuer une tâche particulière,
+      comme une fonction d’addition utilisée pour trouver la somme de deux
+      nombres ou plus. Lorsque des nombres doivent être ajoutés n’importe où
+      dans votre code, la fonction d’addition peut être appelée autant de fois
+      que nécessaire.
+    </p>
+    <h1>Paramètres de fonction</h1>
+    <p>
+      Le paramètre est le nom donné à la variable déclarée à l’intérieur de la
+      définition d’une fonction. Il existe deux types de syntaxe spéciaux : les
+      paramètres par défaut et les paramètres rest.
+    </p>
+    <h1>Paramètres de repos(rest params)</h1>
+    <p>
+      La syntaxe du paramètre rest permet à une fonction d’accepter un nombre
+      indéfini d’arguments sous forme de tableau, ce qui permet de représenter
+      des fonctions variadiques en JavaScript. <br />
+      syntax function f(a, b, ...theArgs) { // … }
+    </p>
+    <h1>Paramètres par défaut(default params)</h1>
+    <p>
+      Les paramètres de fonction par défaut permettent d’initialiser les
+      paramètres nommés avec des valeurs par défaut si aucune valeur n’est
+      transmise.undefined <br />
+      syntax function fnName(param1 = defaultValue1, /* …, */ paramN =
+      defaultValueN) { // … }
+    </p>
+    <hr />
+    <h1>Fonctions fléchées(arrow functions)</h1>
+    <p>
+      La fonction fléchée est une nouvelle façon de créer des fonctions avec
+      l’opérateur '=>' avec une syntaxe plus courte. <br />
+      syntaxe <br />
+      () => expression <br />
+
+      param => expression <br />
+
+      (param) => expression <br />
+
+      (param1, paramN) => expression <br />
+
+      () => { statements } <br />
+
+      param => { statements } <br />
+
+      (param1, paramN) => { statements }
+    </p>
+    <hr />
+    <h1>L’IIFE (Immediate Invoked Function Expression)</h1>
+    <p>
+      L’expression de fonction appelée immédiatement est une fonction qui est
+      exécutée immédiatement après sa création. <br />
+      (function () { // … })(); <br />
+
+      (() => { // … })(); <br />
+
+      (async () => { // … })();
+    </p>
+    <h1>Cas d’utilisation</h1>
+    <p>
+      Éviter de polluer l’espace de nommage global Parce que notre application
+      peut inclure de nombreuses fonctions et variables globales à partir de
+      différents fichiers sources, il est important pour limiter le nombre de
+      variables globales. Si nous avons un code d’initiation que nous n’avons
+      pas besoin d’utiliser encore une fois, nous pourrions utiliser le modèle
+      IIFE. Comme nous ne réutiliserons pas le code à nouveau, il est préférable
+      d’utiliser IIFE dans ce cas plutôt que de à l’aide d’une déclaration de
+      fonction ou d’une expression de fonction
+    </p>
+    <hr />
+    <h1>Argument objet</h1>
+    <p>
+      L’objet arguments est un objet de type tableau accessible à l’intérieur
+      des fonctions qui contient les valeurs des arguments passés à cette
+      fonction, disponible dans toutes les fonctions autres que les flèches.
+      Vous pouvez faire référence aux arguments d’une fonction à l’intérieur de
+      cette fonction à l’aide de son objet arguments. Il a des entrées pour
+      chaque argument avec lequel la fonction a été appelée, avec l’index de la
+      première entrée à 0. Mais, dans le code moderne, les paramètres rest
+      doivent être préférés.
+    </p>
+    <hr />
+    <h1>Étendue et pile de fonctions</h1>
+    <h2>Portée</h2>
+    <p>
+      Un espace ou un environnement dans lequel une variable ou une fonction
+      particulière peut être accédée ou utilisée. L’accessibilité de cette
+      variable ou fonction dépend de l’endroit où elle est définie. <br />
+      <strong>Étendue globale :</strong> étendue par défaut pour tout le code
+      exécuté en mode script. <br />
+      <strong>Étendue du module :</strong> étendue du code s’exécutant en mode
+      module. <br />
+      <strong>Étendue de la fonction :</strong> étendue créée à l’aide d’une
+      fonction. <br />
+      <strong>Portée du bloc :</strong> portée créée à l’aide d’une paire
+      d’accolades (un bloc).
+    </p>
+    <h1>Pile de fonctions (pile d’appels)</h1>
+    <p>
+      La pile de fonctions est la façon dont l’interpréteur garde une trace de
+      sa place dans un script qui appelle plusieurs fonctions, comme la fonction
+      en cours d’exécution et les fonctions de cette fonction qui sont appelées.
+    </p>
+    <hr />
+    <h1>Récursion</h1>
+    <p>
+      L’un des concepts de fonctions les plus puissants et les plus élégants, la
+      récursivité se produit lorsqu’une fonction s’invoque elle-même. Une telle
+      fonction est appelée fonction récursive. Au fur et à mesure que la
+      récursivité se produit, le code sous-jacent de la fonction récursive est
+      exécuté encore et encore jusqu’à ce qu’une condition de fin, appelée cas
+      de base, soit remplie. En plongeant dans le monde des algorithmes, vous
+      rencontrerez la récursivité dans de nombreux cas.
+    </p>
+    <hr />
+    <h1>Portée lexicale</h1>
+    <p>
+      Avant de pouvoir se faire une idée des fermetures en JavaScript, il est
+      important de se familiariser avec le terme « environnement lexical ». En
+      termes simples, l’environnement lexical d’une fonction fait simplement
+      référence à l’environnement englobant la définition de cette fonction dans
+      le code source.f
+    </p>
+    <p id="help">Helpful notes will appear here</p>
+    <p>Email: <input type="text" id="email" name="email" /></p>
+    <p>Name: <input type="text" id="name" name="name" /></p>
+    <p>Age: <input type="text" id="age" name="age" /></p>
+    <hr />
+    <h1>Fermetures(closure)</h1>
+    <p>
+      Les fermetures de fonctions sont l’un des concepts les plus puissants,
+      mais aussi les plus mal compris, de JavaScript qui sont en fait très
+      simples à comprendre. Une fermeture fait référence à une fonction ainsi
+      qu’à son environnement lexical. C’est essentiellement ce qui nous permet
+      de retourner une fonction , à partir d’une autre fonction , qui se
+      souvient des variables locales définies dans , même après des sorties.
+      L’idée de fermetures est employée dans presque tous les autres programmes
+      JavaScript, il est donc primordial pour un développeur JavaScript de le
+      connaître très bien.ABBB
+    </p>
+    <hr />
+    <h1>Fonctions intégrées</h1>
+    <p>
+      Une méthode JavaScript est une propriété contenant une définition de
+      fonction. En d’autres termes, lorsque les données stockées sur un objet
+      sont une fonction, nous appelons cela une méthode. Pour différencier les
+      propriétés des méthodes, nous pouvons y penser de cette façon : une
+      propriété est ce qu’un objet possède, tandis qu’une méthode est ce qu’un
+      objet fait. Étant donné que les méthodes JavaScript sont des actions qui
+      peuvent être effectuées sur des objets, nous devons d’abord avoir des
+      objets pour commencer. Il y a plusieurs objets intégrés à JavaScript que
+      nous pouvons utiliser. <br />
+      <a
+        href="https://www.tutorialspoint.com/javascript/javascript_builtin_functions.htm"
+        >plus d'info</a
+      >
+    </p>
+
+    <script>
+      function greet() {
+        console.log("hello world");
+      }
+      greet();
+
+      function square(number) {
+        return number * number;
+      }
+      console.log(square(2));
+
+      const factorial = function fac(n) {
+        return n < 2 ? 1 : n * fac(n - 1);
+      };
+
+      console.log(factorial(3)); // 6
+      //console.log(factorial(2)); //2
+      //console.log(factorial(1)); //1
+
+      function map(f, a) {
+        const result = new Array(a.length);
+        for (let i = 0; i < a.length; i++) {
+          result[i] = f(a[i]);
+        }
+        return result;
+      }
+
+      const cube = function (x) {
+        return x * x * x;
+      };
+
+      const numbers = [0, 1, 2, 5, 10];
+      console.log(map(cube, numbers)); // [0, 1, 8, 125, 1000]
+      /*--------------------------------------------------------*/
+      //rest params
+      function sum(...theArgs) {
+        let total = 0;
+        for (const arg of theArgs) {
+          total += arg;
+        }
+        return total;
+      }
+
+      console.log(sum(1, 2, 3));
+      // Expected output: 6
+
+      console.log(sum(1, 2, 3, 4));
+      // Expected output: 10
+
+      function restParams(...args) {
+        const array = args.sort();
+        return array;
+      }
+      console.log(restParams(6, 3, 2, 4)); //output 2,3,4,6
+      /*------------------------------------------*/
+      //default params
+      function multiply(a, b = 1) {
+        return a * b;
+      }
+
+      console.log(multiply(5, 2));
+      // Expected output: 10
+
+      console.log(multiply(5));
+      // Expected output: 5
+      /*--------------------------------------------*/
+      //arrow functions
+      const sqrt = (a, b) => {
+        return parseFloat(Math.sqrt(a ** 2 + b ** 2)).toFixed(2);
+      };
+      console.log(sqrt(3, 8));
+      /*-------------------------------------------*/
+      //IFFE
+      (function foo() {
+        console.log("Hello Foo");
+      })();
+
+      (function food() {
+        console.log("Hello Food");
+      })();
+
+      (() => console.log("hello world"))();
+
+      //----------------------
+      const makeWithdraw = (balance) =>
+        ((copyBalance) => {
+          let balance = copyBalance; // This variable is private
+          const doBadThings = () => {
+            console.log("I will do bad things with your money");
+          };
+          doBadThings();
+          return {
+            withdraw(amount) {
+              if (balance >= amount) {
+                balance -= amount;
+                return balance;
+              }
+              return "Insufficient money";
+            },
+          };
+        })(balance);
+
+      const firstAccount = makeWithdraw(100); // "I will do bad things with your money"
+      console.log(firstAccount.balance); // undefined
+      console.log(firstAccount.withdraw(20)); // 80
+      console.log(firstAccount.withdraw(30)); // 50
+      console.log(firstAccount.doBadThings); // undefined; this method is private
+      const secondAccount = makeWithdraw(20); // "I will do bad things with your money"
+      console.log(secondAccount.withdraw(30)); // "Insufficient money"
+      console.log(secondAccount.withdraw(20)); // 0
+      //-----------------
+
+      /*for (var i = 0; i < 2; i++) {
+        const button = document.createElement("button");
+        button.innerText = `Button ${i}`;
+        button.onclick = function () {
+          console.log(i); //0,1
+        };
+        document.body.appendChild(button);
+      }
+      console.log(i); // 2
+
+      for (var i = 0; i < 2; i++) {
+        const button = document.createElement("button");
+        button.innerText = `Button ${i}`;
+        button.onclick = (function (copyOfI) {
+          return function () {
+            console.log(copyOfI);
+          };
+        })(i);
+        document.body.appendChild(button);
+      }
+      console.log(i); // 2
+      //------------------------
+      for (let i = 0; i < 2; i++) {
+        const button = document.createElement("button");
+        button.innerText = `Button ${i}`;
+        button.onclick = function () {
+          console.log(i);
+        };
+        document.body.appendChild(button);
+      }
+      console.log(i); // Uncaught ReferenceError: i is not defined.*/
+
+      //------------------
+      const AdultorMineur = (function () {
+        const age = 30;
+        const cond = age >= 18 ? "mayor" : "mineur";
+        console.log(cond);
+      })();
+      /*------------------------------------------------*/
+      /*arguments est un objet de type tableau accessible à l’intérieur des fonctions qui contient les valeurs des arguments passés à cette fonction.*/
+      function func1(a, b, c) {
+        console.log(arguments[0]);
+        // Expected output: 1
+
+        console.log(arguments[1]);
+        // Expected output: 2
+
+        console.log(arguments[2]);
+        // Expected output: 3
+      }
+
+      func1(1, 2, 3);
+
+      //arguments[1] = "new value";
+
+      function func(a) {
+        arguments[0] = 99; // updating arguments[0] also updates a
+        console.log(a);
+      }
+      func(10); // 99
+
+      function func2(a) {
+        a = 99; // updating a also updates arguments[0]
+        console.log(arguments[0]);
+      }
+      func2(10); // 99
+      //-----------------
+      function funcWithDefault(a = 55) {
+        arguments[0] = 99; // updating arguments[0] does not also update a
+        console.log(a);
+      }
+      funcWithDefault(10); // 10
+
+      function funcWithDefault2(a = 55) {
+        a = 99; // updating a does not also update arguments[0]
+        console.log(arguments[0]);
+      }
+      funcWithDefault2(10); // 10
+
+      // An untracked default parameter
+      function funcWithDefault3(a = 55) {
+        console.log(arguments[0]);
+        console.log(arguments.length);
+      }
+      funcWithDefault3(); // undefined; 0
+      /*arguments est un objet de type tableau
+arguments est un objet de type tableau, ce qui signifie qu’il a une propriété length et des propriétés indexées à partir de zéro, mais il n’a pas les méthodes intégrées de Array comme forEach() ou map(). Cependant, il peut être converti en un , réel en utilisant l’une des syntaxes slice(), Array.from() ou spread.argumentsArra*/
+      //const args1 = Array.prototype.slice.call(arguments);
+      // or
+      //const args2 = Array.from(arguments);
+      // or
+      //const args3 = [...arguments];
+
+      function midpoint() {
+        return (
+          (Math.min.apply(null, arguments) + Math.max.apply(null, arguments)) /
+          2
+        );
+      }
+
+      console.log(midpoint(3, 1, 4, 1, 5)); // 3
+      /*-------------------------------------------------------*/
+      function greeting() {
+        // [1] Some code here
+        sayHi();
+        // [2] Some code here
+      }
+      function sayHi() {
+        return "Hi!";
+      }
+
+      // Invoke the `greeting` function
+      greeting();
+
+      // [3] Some code here
+      //exo
+      function fact(n) {
+        return n < 2 ? 1 : n * fact(n - 1);
+      }
+      console.log(fact(5));
+      function finabochi(n) {
+        if (n <= 2) return 1;
+        return finabochi(n - 1) + finabochi(n - 2);
+      }
+      console.log(finabochi(7));
+      //------------------
+      /*Écrivez une fonction qui génère les éléments de liste un par un.printList(list)
+
+Faites deux variantes de la solution : en utilisant une boucle et en utilisant la récursivité.
+
+Qu’est-ce qui est mieux : avec ou sans récursivité ?*/
+      let list = {
+        value: 1,
+        next: {
+          value: 2,
+          next: {
+            value: 3,
+            next: {
+              value: 4,
+              next: null,
+            },
+          },
+        },
+      };
+      console.log(list);
+      const print1 = function printList(list) {
+        let tmp = list;
+
+        while (tmp) {
+          //alert(tmp.value);
+          tmp = tmp.next;
+        }
+      };
+
+      //console.log(print1(list));
+      const prin2 = function printList(list) {
+        while (list) {
+          //alert(list.value);
+          list = list.next;
+        }
+      };
+      /*Sortie d’une liste chaînée unique à partir de la tâche précédente Sortie d’une liste chaînée unique dans l’ordre inverse.
+
+Faites deux solutions : l’utilisation d’une boucle et l’utilisation d’une récursivité.*/
+      function printreverse(list) {
+        let arr = [];
+        let item = list;
+        while (item) {
+          arr.push(item.value);
+          item = item.next;
+        }
+        for (let i = arr.length - 1; i >= 0; i--) {
+          //alert(arr[i]); //output 4,3,2,1
+        }
+      }
+      const printRever = "";
+      printreverse(list);
+      //console.log(printRever);
+      /*Créez une fonction récursive pour implémenter l’algorithme euclidien.*/
+      const recursive = (a, b) => {
+        if (b === 0) return a;
+        else return recursive(b, a % b);
+      };
+      console.log(recursive(4, 7));
+      //else methode
+      const recursive2 = (a, b) => {
+        let r = a % b;
+        if (r === 0) return b;
+        else return recursive2(b, r);
+      };
+      console.log(recursive2(4, 7));
+      /*-------------------------------------------------------*/
+      var a = "static";
+
+      function f1() {
+        console.log(a);
+      }
+
+      function f2() {
+        var a = "dynamic";
+        f1();
+      }
+
+      //f2();
+      console.dir(f1);
+      //---------
+      var a = "easy";
+
+      (function () {
+        var b = "easy";
+
+        function f1() {
+          console.log(a, b);
+        }
+
+        function f2() {
+          var a = "difficult";
+          var b = "difficult";
+          f1();
+        }
+
+        f2();
+      })();
+      //---
+      let d = 2;
+      const fn = () => {
+        let b = 3;
+        function fm() {
+          let c = 4;
+          console.log(d, b, c); //2,3,4
+        }
+        return fm();
+      };
+      console.log(fn()); //undefined
+
+      function init() {
+        var name = "Mozilla"; // name is a local variable created by init
+        function displayName() {
+          // displayName() is the inner function, that forms the closure
+          console.log(name); // use variable declared in the parent function
+        }
+        displayName();
+      }
+      init();
+      //-----
+      const counter = (function () {
+        let privateCounter = 0;
+        function changeBy(val) {
+          privateCounter += val;
+        }
+
+        return {
+          increment() {
+            changeBy(1);
+          },
+
+          decrement() {
+            changeBy(-1);
+          },
+
+          value() {
+            return privateCounter;
+          },
+        };
+      })();
+
+      console.log(counter.value()); // 0.
+
+      counter.increment();
+      counter.increment();
+      console.log(counter.value()); // 2.
+
+      counter.decrement();
+      console.log(counter.value()); // 1.
+      //---------------
+      // global scope
+      const e = 10;
+      function sum(a) {
+        return function (b) {
+          return function (c) {
+            // outer functions scope
+            return function (d) {
+              // local scope
+              return a + b + c + d + e;
+            };
+          };
+        };
+      }
+
+      console.log(sum(1)(2)(3)(4)); // 20
+      //------------------
+      function showHelp(help) {
+        document.getElementById("help").textContent = help;
+      }
+
+      function setupHelp() {
+        var helpText = [
+          { id: "email", help: "Your email address" },
+          { id: "name", help: "Your full name" },
+          { id: "age", help: "Your age (you must be over 16)" },
+        ];
+
+        for (var i = 0; i < helpText.length; i++) {
+          // Culprit is the use of `var` on this line
+          var item = helpText[i];
+          document.getElementById(item.id).onfocus = function () {
+            showHelp(item.help);
+          };
+        }
+      }
+
+      setupHelp();
+      //-----------
+      let spaceship = {
+        crew: {
+          captain: {
+            name: "Lily",
+            degree: "Computer Engineering",
+            cheerTeam() {
+              console.log("You got this!");
+            },
+          },
+          "chief officer": {
+            name: "Dan",
+            degree: "Aerospace Engineering",
+            agree() {
+              console.log("I agree, captain!");
+            },
+          },
+          medic: {
+            name: "Clementine",
+            degree: "Physics",
+            announce() {
+              console.log(`Jets on!`);
+            },
+          },
+          translator: {
+            name: "Shauna",
+            degree: "Conservation Science",
+            powerFuel() {
+              console.log("The tank is full!");
+            },
+          },
+        },
+      };
+
+      // for...in
+      for (let crewMember in spaceship.crew) {
+        console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`);
+      }
+    </script>
+  </body>
+</html>

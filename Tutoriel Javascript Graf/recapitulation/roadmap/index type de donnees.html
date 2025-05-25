@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Types de données</title>
+  </head>
+  <body>
+    <h2>The typeof Operator</h2>
+
+    <p>
+      The typeof operator returns the type of a variable, object, function or
+      expression:
+    </p>
+
+    <p id="demo"></p>
+
+    <h1>Prototypes d'object</h1>
+    <p>
+      JavaScript est un langage orienté objet construit autour d’un modèle
+      prototype. En JavaScript, chaque objet hérite des propriétés de son
+      prototype, s’il y en a. Un prototype est simplement un objet dont un autre
+      objet hérite des propriétés. Pour créer des programmes complexes à l’aide
+      de JavaScript, il faut être compétent dans le travail avec des prototypes
+      - ils constituent le cœur même de la POO dans le langage.
+    </p>
+
+    <script>
+      document.getElementById("demo").innerHTML =
+        "'John' is " +
+        typeof "John" +
+        "<br>" +
+        "3.14 is " +
+        typeof 3.14 +
+        "<br>" +
+        "NaN is " +
+        typeof NaN +
+        "<br>" +
+        "false is " +
+        typeof false +
+        "<br>" +
+        "[1, 2, 3, 4] is " +
+        typeof [1, 2, 3, 4] +
+        "<br>" +
+        "{name:'John', age:34} is " +
+        typeof { name: "John", age: 34 } +
+        "<br>" +
+        "new Date() is " +
+        typeof new Date() +
+        "<br>" +
+        "function () {} is " +
+        typeof function () {} +
+        "<br>" +
+        "myCar is " +
+        typeof myCar +
+        "<br>" +
+        "null is " +
+        typeof null;
+
+      /*Le type d’opérateur
+L’opérateur typeof renvoie le type d’une variable, d’un objet, d’une fonction ou d’une expression :
+
+'John' est une chaîne 3.14 est un nombre NaN est un nombre
+false est booléen
+[1, 2, 3, 4] est object
+{name :'John', age :34} est un objet new Date() est un objet function () {} est une
+fonction
+myCar est indéfinie
+null est un
+objet*/
+      /*-----------------------------------------------------*/
+      //Un objet vide (« armoire vide ») peut être créé à l’aide de l’une des deux syntaxes suivantes :
+
+      //let user = new Object(); // "object constructor" syntax
+      //let User = {}; // "object literal" syntax
+
+      //create a object
+      let info = {
+        name: "Paul",
+        age: 60,
+        job: "developper BackEnd",
+      };
+
+      //Nous pouvons ajouter, supprimer et lire des fichiers à tout moment.
+      //Les valeurs des propriétés sont accessibles à l’aide de la notation par points :
+
+      // get property values of the object:
+      //alert(info.name); // John
+      //alert(info.age); // 30
+
+      //La valeur peut être de n’importe quel type. Ajoutons-en un booléen :
+      info.isAdmin = true;
+      //console.log(info.isAdmin);
+
+      // Pour supprimer une propriété, nous pouvons utiliser l’opérateur :delete
+      delete info.age;
+
+      //Nous pouvons également utiliser des noms de propriétés à plusieurs mots, mais ils doivent alors être mis entre guillemets :
+
+      let content = {
+        name: "John",
+        age: 30,
+        "likes birds": true,
+        // multiword property name must be quoted
+      };
+
+      //Pour les propriétés multimots, l’accès par point ne fonctionne pas :
+
+      // this would give a syntax error
+      // content.likes birds = true
+
+      //Il existe une alternative à la « notation entre crochets » qui fonctionne avec n’importe quelle chaîne de caractères :
+
+      /* let user = {};
+
+     // set
+     content["likes birds"] = true;
+
+     // get
+    alert(user["likes birds"]); // true
+
+     // delete
+     delete user["likes birds"];*/
+      //--------------------------------------
+
+      //Dans le code réel, nous utilisons souvent des variables existantes comme valeurs pour les noms de propriétés.
+      //Par exemple:
+
+      /*function makeUser(name, age) {
+        return {
+          name: name,
+          age: age,
+          // ...other properties
+        };
+      }*/
+
+      //let user = makeUser("John", 30);
+      //alert(user.name); // John
+
+      //Comme nous le savons déjà, une variable ne peut pas avoir un nom égal à l’un des mots réservés à la langue comme « for », « let », « return », etc.
+      //Mais pour une propriété d’objet, il n’y a pas de restriction de ce type :
+
+      // these properties are all right
+      /*let obj = {
+        for: 1,
+        let: 2,
+        return: 3,
+      };
+
+      alert(obj.for + obj.let + obj.return); // 6 */
+
+      //Une caractéristique notable des objets en JavaScript, par rapport à de nombreux autres langages, est qu’il est possible d’accéder à n’importe quelle propriété. Il n’y aura pas d’erreur si la propriété n’existe pas !
+      //La lecture d’une propriété inexistante renvoie simplement . Ainsi, nous pouvons facilement tester si la propriété existe :undefined
+
+      let us = {};
+
+      // alert(us.noSuchProperty === undefined); // true means "no such property"
+
+      //Il y a aussi un opérateur spécial pour cela."in"
+      //La syntaxe est la suivante :
+
+      //"key" in object;
+
+      //let user = { name: "John", age: 30 };
+
+      //alert("age" in user); // true, user.age exists
+      //alert("blabla" in user); // false, user.blabla doesn't exist
+
+      //Veuillez noter qu’à gauche, il doit y avoir un nom de propriété. Il s’agit généralement d’une chaîne entre guillemets.in
+      //Si nous omettons les guillemets, cela signifie qu’une variable doit contenir le nom réel à tester. Par exemple:
+
+      //let user = { age: 30 };
+
+      //let key = "age";
+      //alert(key in user); // true, property "age" exists
+
+      //Pourquoi l’opérateur existe-t-il ? N’est-ce pas suffisant pour comparer ?inundefined
+      //Eh bien, la plupart du temps, la comparaison avec fonctionne bien. Mais il y a un cas particulier où il échoue, mais fonctionne correctement.undefined"in"
+      //C’est lorsqu’une propriété d’objet existe, mais stocke :undefined
+
+      let obj = {
+        test: undefined,
+      };
+
+      //alert(obj.test); // it's undefined, so - no such property?
+
+      //alert("test" in obj); // true, the property does exist!
+
+      //Pour parcourir toutes les clés d’un objet, il existe une forme spéciale de la boucle : . C’est une chose complètement différente de la construction que nous avons étudiée précédemment.for..infor(;;)
+      //La syntaxe :
+
+      //for (key in object) {
+      // executes the body for each key among object properties
+      //}
+
+      //Par exemple, affichons toutes les propriétés de :user
+
+      /*let user = {
+        name: "John",
+        age: 30,
+        isAdmin: true,
+      };*/
+
+      /*for (let key in user) {
+        // keys
+        alert(key); // name, age, isAdmin
+        // values for the keys
+        alert( user[key] ); // John, 30, true
+      }*/
+
+      //Les objets sont-ils commandés ? En d’autres termes, si nous faisons une boucle sur un objet, obtenons-nous toutes les propriétés dans le même ordre qu’elles ont été ajoutées ? Peut-on s’y fier ?
+      //La réponse courte est : « ordonnés d’une manière spéciale » : les propriétés entières sont triées, les autres apparaissent dans l’ordre de création. Les détails suivent.
+
+      //À titre d’exemple, considérons un objet avec les codes téléphoniques :
+
+      /*let codes = {
+        49: "Germany",
+        41: "Switzerland",
+        44: "Great Britain",
+        // ..,
+        1: "USA",
+      };*/
+
+      /*for (let code in codes) {
+        alert(code); // 1, 41, 44, 49
+      }*/
+
+      //Le terme « propriété entière » désigne ici une chaîne qui peut être convertie en et à partir d’un entier sans modification.
+      //Il s’agit donc d’un nom de propriété entier, car lorsqu’il est transformé en nombre entier et inversement, il est toujours le même. Mais et ne sont pas :"49""+49""1.2"
+
+      // Number(...) explicitly converts to a number
+      // Math.trunc is a built-in function that removes the decimal part
+      //alert(String(Math.trunc(Number("49")))); // "49", same, integer property
+      //alert(String(Math.trunc(Number("+49")))); // "49", not same "+49" ⇒ not integer property
+      //alert(String(Math.trunc(Number("1.2")))); // "1", not same "1.2" ⇒ not integer
+
+      //D’autre part, si les clés ne sont pas entières, elles sont répertoriées dans l’ordre de création, par exemple :
+
+      /*let user = {
+        name: "John",
+        surname: "Smith",
+      };
+      user.age = 25; // add one more
+
+      // non-integer properties are listed in the creation order
+      for (let prop in user) {
+        alert(prop); // name, surname, age
+      }*/
+
+      //Donc, pour résoudre le problème avec les codes téléphoniques, nous pouvons « tricher » en rendant les codes non entiers. Il suffit d’ajouter un signe plus avant chaque code."+"
+      //Comme ça:
+
+      /*let codes = {
+        "+49": "Germany",
+        "+41": "Switzerland",
+        "+44": "Great Britain",
+        // ..,
+        "+1": "USA",
+      };
+
+      for (let code in codes) {
+        alert(+code); // 49, 41, 44, 1
+      }*/
+
+      /*Les objets sont des tableaux associatifs dotés de plusieurs caractéristiques spéciales.
+
+Ils stockent des propriétés (paires clé-valeur), où :
+
+Les clés de propriété doivent être des chaînes ou des symboles (généralement des chaînes).
+Les valeurs peuvent être de n’importe quel type.
+Pour accéder à une propriété, nous pouvons utiliser :
+
+La notation par points : .obj.property
+Notation entre crochets . Les crochets permettent de prendre la clé d’une variable, comme .obj["property"]obj[varWithKey]
+Opérateurs supplémentaires :
+
+Pour supprimer une propriété : .delete obj.prop
+Pour vérifier si une propriété avec la clé donnée existe : ."key" in obj
+Pour itérer sur un objet : boucle.for (let key in obj)
+Ce que nous avons étudié dans ce chapitre s’appelle un « objet simple », ou simplement .Object
+
+Il existe de nombreux autres types d’objets en JavaScript :
+
+Array pour stocker les collections de données ordonnées,
+Date pour stocker les informations relatives à la date et à l’heure,
+Error pour stocker les informations relatives à une erreur.
+... Et ainsi de suite.
+Ils ont leurs particularités que nous étudierons plus tard. Parfois, les gens disent quelque chose comme « Type de tableau » ou « Type de date », mais formellement, ce ne sont pas des types à part entière, mais appartiennent à un seul type de données « objet ». Et ils l’étendent de diverses manières.
+
+Les objets en JavaScript sont très puissants. Ici, nous n’avons fait qu’effleurer la surface d’un sujet qui est vraiment énorme. Nous travaillerons en étroite collaboration avec les objets et en apprendrons plus à leur sujet dans d’autres parties du didacticiel.*/
+
+      //Taches(sol--1)
+      //Créez un objet vide .user
+      let user = {};
+      //Ajoutez la propriété avec la valeur .nameJohn
+      user = {
+        name: "John",
+      };
+      //Ajoutez la propriété avec la valeur .surnameSmith
+      user = {
+        name: "john",
+        surname: "Smith",
+      };
+      //Remplacez la valeur de l’attribut par .namePete
+      user.name = "Pete";
+      //Supprimez la propriété de l’objet.name
+      //delete user[name]; //ou
+      delete user.name;
+      //console.log(user);
+
+      //Ecrivez la fonction qui retourne si l’objet n’a pas de propriétés, sinon.isEmpty(obj)truefalse
+      //Devrait fonctionner comme ça :
+      function isEmpty(obj) {
+        for (let key in obj) {
+          return false;
+        }
+        return true;
+      }
+
+      isEmpty();
+      //console.log(isEmpty);
+
+      //Écrivez le code pour additionner tous les salaires et stockez-les dans la variable . Devrait être dans l’exemple ci-dessus.sum390
+      //Si est vide, alors le résultat doit être .salaries0
+      let salaire = {
+        John: 200,
+        Paul: 400,
+        June: 250,
+      };
+
+      let sum = 0;
+      for (let key in salaire) {
+        sum += salaire[key];
+      }
+      //console.log(sum); //850
+
+      //Créez une fonction qui multiplie toutes les valeurs numériques des propriétés de par .multiplyNumeric(obj)obj2
+      let menu = {
+        pizza: 200,
+        hamburger: 300,
+        title: "My menu",
+      };
+
+      let produit = 0;
+      function multiplyNumeric() {
+        for (let key in menu) {
+          if (typeof menu[key] == "number") {
+            menu[key] *= 2;
+            return menu;
+          }
+        }
+      }
+      //multiplyNumeric();
+      produit = multiplyNumeric();
+      console.log(produit); //200 * 2 / 300 * 2
+      /*-----------------------------------------------------*/
+      /*obj.create() methode statique cree un nouvel objet,en utilisant un objet existant comme prototype de l'objet nouvellement cree
+      syntaxe : object.create(proto)
+      object.create(proto,propertiesObject)
+      proto: l'object qui doit etre le prototype de 'object nouvellement cree.
+      propertiesObject : un objet dont les propres proprietes enumerables specifient les descripteurs de propriete a l'ajouter a l'objet nouvellement cree,avec les noms de propriete correspondants.Ces proprietes correspondent au deuxieme argument de Object.defineProperties()
+      */
+      //Prototype d'object
+      var a = { x: 10, y: 20 };
+
+      // make a as the prototype
+      var b = Object.create(a);
+
+      // add the properties one-by-one
+      b.p = 100;
+      b.q = 200;
+      console.log(b); //output{p:100,q:200,{x:10,y:20}}
+
+      // create an object with a null prototype
+      var o = Object.create(null);
+
+      o.x = 10;
+      o.y = 20;
+
+      console.log(o); //output {x:10,y:20}
+      /*-----------------------------------------------*/
+      /*Object.defineProperty(): methode statique definit une nouvelle propriete directement sur un objet,ou modifie une propriete existante sur un objet,et renvoie l'objet.
+      syntaxe: object.defineProperty(obj,prop,descriptor)
+      obj: sur lequel definir la propriete.
+      prop: une chaine ou symbol precisant la cle de la propriete a definir ou a modifier.
+      descriptor: le descriptor de la propriete en cours de defintions ou de modification.*/
+      const object1 = {};
+      Object.defineProperty(object1, "property1", {
+        value: 42,
+        writable: false,
+      });
+      object1.property1 = 77;
+      //trows an error in strict mode
+      console.log(object1.property1); //output 42
+
+      var o = {};
+
+      // non-writable data property
+      Object.defineProperty(o, "x", { value: "old" });
+
+      // setter-less accessor property
+      Object.defineProperty(o, "y", {
+        get: function () {
+          return "old";
+        },
+      });
+
+      o.x = "new";
+      console.log("o.x:", o.x); //output o.x: old
+
+      o.y = "new";
+      console.log("o.y:", o.y); //output o.y: old
+      /*----------------------------------------------*/
+
+      var o = {};
+
+      // non-writable data property
+      Object.defineProperty(o, "x", { value: "old" });
+
+      // setter-less accessor property
+      Object.defineProperty(o, "y", {
+        get: function () {
+          return "old";
+        },
+      });
+
+      var a = Object.create(o);
+
+      a.x = "new";
+      console.log("a.x:", a.x); //output a.x: old
+
+      a.y = "new";
+      console.log("a.y:", a.y); //output a.y: old
+
+      console.log(a); //output {}
+      /*---------------------------------------------*/
+      var a = { x: 0, y: 0 };
+
+      console.log(a.hasOwnProperty("x")); //output true
+      console.log(a.hasOwnProperty("y")); //output true
+      console.log(a.hasOwnProperty("z")); //output false
+      /*------------------------------------------------*/
+      var proto = { z: 0 };
+
+      var a = Object.create(proto);
+      a.x = 0;
+      a.y = 0;
+
+      console.log(a.hasOwnProperty("x")); //output true
+      console.log(a.hasOwnProperty("y")); //output true
+      console.log(a.hasOwnProperty("z")); //output false
+
+      console.log(proto.hasOwnProperty("z")); //output true
+      /*----------------------------------------------*/
+      /*l'operateur in renvoie true si une propriete donnee appartient al'objet donne (directement  ou via sa chaines de prototype*/
+      var proto = { y: 0 };
+
+      var o = Object.create(proto);
+      o.x = 0;
+
+      console.log("x" in o); //output true
+      console.log("y" in o); //output true
+
+      console.log("hasOwnProperty" in o); //output true
+      console.log("nonExistent" in o); //output false
+      /*-------------------------------------------------*/
+      function Item(sellingPrice, actualPrice) {
+        this.sellingPrice = sellingPrice;
+        this.actualPrice = actualPrice;
+
+        Object.defineProperty(this, "discount", {
+          get: function () {
+            return (
+              ((this.actualPrice - this.sellingPrice) / this.actualPrice) * 100
+            );
+          },
+          set: function (perc) {
+            this.sellingPrice =
+              this.actualPrice - (perc / 100) * this.actualPrice;
+          },
+          configurable: true,
+          enumerable: true,
+        });
+      }
+      var item = new Item(25, 50);
+      item.sellingPrice;
+      25;
+      item.actualPrice;
+      50;
+      //article.discount;
+      50;
+      console.log(item);
+      /*-------------------------------------------------*/
+
+      try {
+        /* ... Shape definition */
+
+        function Rect(width, height, x, y, fill) {
+          // initialise this Shape
+          Shape.call(this, x, y, fill);
+
+          this.width = width;
+          this.height = height;
+        }
+
+        Rect.prototype = Object.create(Shape.prototype);
+
+        Rect.prototype.draw = function () {
+          console.log("Drawing the rectangle.");
+        };
+        var r1 = new Rect(20, 50, 0, 0);
+        console.log(r1); //output
+        indéfini;
+        r1.draw();
+        console.log(r1); //output
+        //Dessiner le rectangle.
+        indéfini;
+        r1.move(-1, 5);
+        //Déplacement de la forme vers (-1, 5).
+        indéfini;
+        r1.delete();
+        //Suppression de la forme.
+        indéfini;
+      } catch (err) {
+        console.log(err.message);
+      }
+      /*------------------------------------------*/
+    </script>
+  </body>
+</html>

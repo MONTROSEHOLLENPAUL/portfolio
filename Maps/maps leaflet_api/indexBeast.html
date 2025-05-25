@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map itinerary</title>
+    <!--icon-->
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+<link rel="shortcut icon" href="./favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="./favicon/site.webmanifest" />
+    <!--end-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles leaflet.css" />
+    <!--leaflet-geocoder-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: rgba(148, 148, 219, 0.82);  
+  } 
+
+#map {
+    height: 100vh;
+    z-index: 0;
+    padding: 4px;
+  }
+
+/*---------------------------------------*/
+.pos_absolute_2{
+  position: absolute;
+  z-index: 1;
+  bottom: 0%;
+  left: 0%;
+  transition: left 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.body_pos_abs{
+  font-size: 1rem;
+  border-radius: 0px 10px 0px 0px;
+  overflow: hidden;
+  box-shadow: 2px -2px 9px 1px black;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.activeInputIti {
+  left: -100%;
+  transition: left 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/*-------------------------------------*/
+.position_info_body{
+  text-align: justify;
+  padding: 8px;
+}
+
+.position_info_body span{
+  display: block;
+}
+/*-------------form------------------*/
+.itinerary_info_body{
+  padding: 8px;
+}
+
+.FORM{
+  padding: 8px;
+}
+
+.Form_body{
+  display: flex;
+  gap: 3px;
+}
+
+.icon_mode_travel{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.icon_mode_travel label input{
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.icon_mode_travel label input:checked ~ .check{
+  background: #b3b1fb;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.icon_mode_travel span:hover{
+  background: #b3b1fb;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.icon{
+  display: grid;
+  padding-top: 2px;
+}
+
+.form{
+  display: grid;
+}
+
+.form input {
+  height: 20px;
+padding: 4px;
+outline: none;
+font-size: 1rem;
+text-transform: capitalize;
+
+border-top: 0px;
+border-right: 0;
+border-left: 0;
+background: none;
+}
+
+.input_from{
+  margin-bottom: 7px;
+}
+
+.input_to{
+  margin-top: 7px;
+}
+
+.from_to_body > div span{
+  display: block;
+  text-align: justify;
+  padding-top: 4px;
+}
+
+
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <!--start-->
+    <div class="pos_absolute_2">
+      <ul class="list_2_body body_pos_abs">
+
+        <li class="itinerary_info_body">
+
+          <div class="Form_body">
+
+            <div class="icon iti_pos_from_to">
+              <span><i class="bi bi-record-circle"></i></span>
+              <span><i class="bi bi-three-dots-vertical"></i></span>
+              <span><i class="bi bi-geo-alt"></i></span>
+            </div>
+  
+            <div class="form">
+              <input type="text" placeholder="Departure point" class="input_from"/>
+              <input type="text" placeholder="Choose a destination" class="input_to"/>
+            </div>
+
+          </div>
+
+          <div class="icon_mode_travel">
+
+            <label for="car">
+              <input type="radio" id="car" name="mode_travel"/>
+              <span class="check"><i class="bi bi-car-front"></i></span>
+            </label>
+
+            <label for="bike">
+              <input type="radio" id="bike" name="mode_travel"/>
+              <span class="check"><i class="bi bi-bicycle"></i></span>
+            </label>
+
+            <label for="walk">
+              <input type="radio" id="walk" name="mode_travel"/>
+              <span class="check"><i class="bi bi-person-walking"></i></span>
+            </label>
+
+             
+          </div>
+          
+
+          <div class="from_to_body"></div>
+        
+        </li>
+       
+
+      </ul>
+    </div>
+
+    <!--end-->
+
+    <div class="Container_body">
+      <div class="app">
+        
+
+        <div class="maps_body">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <!--leaflet-geocoder-->
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="mapsLea.js"></script>
+    <!--start-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--end-->
+    <script>
+      const input_from = document.querySelector(".input_from")
+const input_to = document.querySelector(".input_to")
+const travelmode = document.querySelectorAll(".icon_mode_travel input[type=radio]");
+const Map = document.querySelector("#map")
+const inputItin = document.querySelector(".pos_absolute_2");
+//const indexItin = document.querySelector(".leaflet-routing-container.leaflet-bar.leaflet-control")
+//console.log(input_from,input_to,travelmode,Map);
+
+
+window.onload = function () {
+
+}
+/*--------- */
+
+ /*--------- */
+ window.addEventListener("click", (e) => {
+  e.stopPropagation();
+  const clicked = e.target;
+  if (travelmode[0].checked) {
+    console.log("car checked");
+    itinerary("car");
+  }
+  else if (travelmode[1].checked ) {
+    console.log("bike check");
+    itinerary("bike");
+    }
+    else if(travelmode[2].checked){
+      console.log("foot check");
+      itinerary("foot");
+    }
+    
+});
+/*------------ */
+
+Map.addEventListener("mousedown",(e) => {
+  e.preventDefault()
+  //console.log(e);
+  inputItin.classList.add("activeInputIti");
+  //indexItin.classList.add("indexroutehidd"); 
+})
+
+Map.addEventListener("dblclick",(e) => {
+  e.preventDefault()
+  inputItin.classList.remove("activeInputIti");
+  //indexItin.classList.remove("indexroutehidd");
+})
+
+
+
+
+/*-------------maps-------------- */
+function maps(lat,long) {
+    var container = L.DomUtil.get("map");
+      if (container != null) {
+        container._leaflet_id = null
+      }
+  
+      MAP = L.map("map").setView([lat, long], 10);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 15,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(MAP);
+
+  }
+
+/*---------------------center map--------------- */
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+function success(pos) {
+  const crd = pos.coords;
+  latitude =  crd.latitude;
+  longitude = crd.longitude;
+  acur = crd.accuracy;
+  let l1 = latitude;
+  let l2 = longitude;
+  console.log(`Your current position \nLatitude : ${l1} \nLongitude: ${l2} \nMore or less ${acur} meters.`);
+      return maps(l1,l2)  
+}
+
+function error(err) {
+  alert(`ERROR(${err.code}): ${err.message}`);
+  latDef = 18.556408;
+  longDef = -72.282822
+  console.log(`Default location \nLatitude:${latDef} \nLongitude:${longDef}`);
+  maps(latDef,longDef)  
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+/*------------------ */
+function itinerary(mode="car"){
+
+  lat = 0;
+  lng = 0;
+
+  var MAP = L.map("map").setView([lat, lng], 12);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    minZoom: 5,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(MAP);
+
+/*-------------- */
+  var fromMarker,toMarker,routeControl;
+
+
+  if(!input_from.value || !input_to.value){
+    alert("your input is empty");
+    return
+  }
+
+
+  if(fromMarker){
+    MAP.removeLayer(fromMarker)
+  }
+
+
+  if(toMarker){
+    MAP.removeLayer(toMarker)
+  }
+
+
+  if(routeControl){
+    MAP.removeControl(routeControl)
+  }
+
+  axios.get("https://nominatim.openstreetmap.org/search",{
+    params:{
+      format:"json",
+      q:input_from.value
+    }
+  }).then(function(response){
+    var fromLat = response.data[0].lat
+    var fromLon = response.data[0].lon
+    fromMarker = L.marker([fromLat,fromLon]).addTo(MAP)
+    MAP.setView([fromLat,fromLon],13)
+    return axios.get("https://nominatim.openstreetmap.org/search",{
+      params:{
+        format:"json",
+        q:input_to.value
+      }
+    }).then(function(response){
+      var toLat = response.data[0].lat
+      var toLon = response.data[0].lon
+      toMarker = L.marker([toLat,toLon]).addTo(MAP)
+      routeControl = L.Routing.control({
+        waypoints:[
+          L.latLng(fromLat,fromLon),
+          L.latLng(toLat,toLon),
+        ],
+        lineOptions: {
+          styles: [
+            {
+              color: "#8f8cff",
+              opacity: 1,
+              weight: 7,
+            },
+          ],
+        },
+        routes: new L.Routing.osrmv1({
+          language: "fr",
+          profile: mode, //car,bike,foot
+        }),
+        router:L.Routing.osrmv1({
+          serviceURL:"https://router.project-osrm.org/route/v1"
+        })
+      }).addTo(MAP)
+    })
+  }).catch(function(err){
+    if(err){
+      console.log(err.message);
+      alert(`error ${err.message}`);
+    }else if(input_from === "" || input_to === ""){
+      alert("input is empty");
+    }
+  })
+
+}
+
+    </script>
+  </body>
+</html>

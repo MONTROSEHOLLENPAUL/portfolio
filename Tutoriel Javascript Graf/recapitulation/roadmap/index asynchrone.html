@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript asynchrone</title>
+  </head>
+  <body>
+    <h1>JavaScript asynchrone</h1>
+    <p>
+      La programmation asynchrone est une technique qui permet à votre programme
+      de démarrer une tâche potentiellement longue et d’être toujours en mesure
+      de répondre à d’autres événements pendant l’exécution de cette tâche,
+      plutôt que d’avoir à attendre la fin de cette tâche. Une fois cette tâche
+      terminée, le résultat est présenté à votre programme. De nombreuses
+      fonctions fournies par les navigateurs, en particulier les plus
+      intéressantes, peuvent potentiellement prendre beaucoup de temps et sont
+      donc asynchrones. Par exemple:
+    </p>
+    <ul>
+      <li>Effectuer des requêtes HTTP à l’aide de fetch()</li>
+      <li>
+        Accéder à la caméra ou au microphone d’un utilisateur à l’aide de
+        getUserMedia()
+      </li>
+      <li>
+        Demander à un utilisateur de sélectionner des fichiers à l’aide de
+        showOpenFilePicker()
+      </li>
+    </ul>
+    <label for="quota">Number of primes:</label>
+    <input type="text" id="quota" name="quota" value="1000000" />
+
+    <button id="generate">Generate primes</button>
+    <button id="reload">Reload</button>
+
+    <div id="output"></div>
+
+    <button id="xhr">Click to start request</button>
+    <button class="reload">Reload</button>
+
+    <pre readonly class="event-log"></pre>
+    <hr />
+    <h1>setTimeout</h1>
+    <p>
+      Le setTimeout exécute une fonction après l’expiration de la période
+      spécifiée. Les temps sont déclarés en millisecondes.
+    </p>
+    <h1>setInterval</h1>
+    <p>
+      La méthode nous aide à exécuter une fonction de manière répétée après un
+      délai fixe. Il renvoie un ID d’intervalle unique qui peut être utilisé
+      ultérieurement par la méthode, ce qui arrête l’exécution répétée de la
+      fonction.setInterval()clearInterval() setInterval() est similaire à
+      setTimeout, avec une différence. Au lieu d’exécuter la fonction de rappel
+      une seule fois, elle l’exécutera indéfiniment, à l’intervalle de temps
+      spécifique que vous spécifiez (en millisecondes) :
+    </p>
+    <hr />
+    <h1>Rappels</h1>
+    <p>
+      Une fonction de rappel est une fonction passée dans une autre fonction en
+      tant qu’argument, qui est ensuite invoquée à l’intérieur de la fonction
+      externe pour effectuer une sorte de routine ou d’action.
+    </p>
+    <hr />
+    <h1>Promesses</h1>
+    <p>
+      Les promesses sont un bien meilleur moyen de travailler avec du code
+      asynchrone en JavaScript que l’ancienne approche de rappel sujette aux
+      erreurs. Ils ont été introduits en JavaScript avec ECMAScript 6. À l’aide
+      de promesses, nous pouvons gérer du code asynchrone extrêmement complexe
+      avec une configuration rigoureuse de gestion des erreurs, écrire du code
+      dans un style plus ou moins synchrone et nous empêcher de nous retrouver
+      dans ce que l’on appelle l’enfer du callback.
+    </p>
+    <hr>
+    <h1>L’enfer des rappels(callback hell)</h1>
+    <p>
+        L’enfer des rappels, c’est quand nous essayons d’écrire du JavaScript asynchrone d’une manière où l’exécution se produit visuellement de haut en bas, en créant un code qui a une forme pyramidale avec de nombreux }) à la fin.</p>
+        <hr>
+        <h1>Async/Await</h1>
+        <p>
+            async/await est une syntaxe spéciale pour travailler avec les promesses d’une manière plus confortable. Nous utilisons un mot-clé pour déclarer une fonction asynchrone qui renvoie une promesse, et le mot-clé fait attendre une promesse à une fonction.asyncawait</p>
+
+    <script src="index asynchrone.js">
+
+              //-------------------synchrone-------------------------
+      const MAX_PRIME = 1000000;
+
+      function isPrime(n) {
+          for (let i = 2; i <= Math.sqrt(n); i++) {
+              //explication i = 2;i <= Math.sqrt(n);i++
+              //if n = 0,1 return false because n is less than 1
+            if (n % i === 0) {
+              return false;
+              //n % i = === 0;
+              //in condition return false for even number(0,4,6,8,etc)
+            }
+          }
+          return n > 1;
+          //in this block return a boolean
+        }
+
+        //const result = isPrime(8)
+        //console.log(result)
+
+      const random = (max) => Math.floor(Math.random() * max);
+
+      function generatePrimes(quota) {
+        const primes = [];
+        while (primes.length < quota) {
+          const candidate = random(MAX_PRIME);
+          if (isPrime(candidate)) {
+            primes.push(candidate);
+          }
+        }
+        return primes;
+      }
+
+      const quota = document.querySelector("#quota");
+      const output = document.querySelector("#output");
+
+      document.querySelector("#generate").addEventListener("click", () => {
+        const primes = generatePrimes(quota.value);
+        output.textContent = `Finished generating ${quota.value} primes!`;
+      });
+
+      document.querySelector("#reload").addEventListener("click", () => {
+        document.location.reload();
+      });
+
+      //---------------------------asynchrone--------------------------
+      const log = document.querySelector(".event-log");
+
+      document.querySelector("#xhr").addEventListener("click", () => {
+        log.textContent = "";
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("loadend", () => {
+          log.textContent = `${log.textContent}Finished with status: ${xhr.status}`;
+        });
+
+        xhr.open(
+          "GET",
+          "https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json",
+        );
+        xhr.send();
+        log.textContent = `${log.textContent}Started XHR request\n`;
+      });
+
+      document.querySelector(".reload").addEventListener("click", () => {
+        log.textContent = "";
+        document.location.reload();
+      });
+    </script>
+  </body>
+</html>
