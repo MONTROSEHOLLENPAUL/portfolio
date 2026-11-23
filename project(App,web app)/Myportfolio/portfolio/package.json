@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "projects that have been completed",
+  "license": "ISC",
+  "author": "Monterose Hollen Paul",
+  "type": "commonjs",
+  "main": "server/index.js",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build": "npm run install:all && npm --prefix client run build",
+    "start": "node server/index.js"
+  }
+}

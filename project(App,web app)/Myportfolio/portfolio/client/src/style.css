@@ -1,0 +1,71 @@
+:root {
+  --bg: #0b0f17;
+  --surface: #131a26;
+  --surface-2: #1a2333;
+  --border: #25314a;
+  --text: #e8edf6;
+  --muted: #93a0b8;
+  --accent: #3ddc97;
+  --accent-ink: #04281a;
+  --danger: #ff6b6b;
+  --radius: 16px;
+  --gutter: clamp(16px, 5vw, 48px);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fc;
+    --surface: #ffffff;
+    --surface-2: #eef2f9;
+    --border: #d9e0ee;
+    --text: #101828;
+    --muted: #55627a;
+    --accent: #0a9d63;
+    --accent-ink: #ffffff;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; line-height: 1.15; margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+.container { width: min(1120px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+
+/* Boutons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 20px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  font: 600 0.95rem "Inter", sans-serif; text-decoration: none; cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+}
+.btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.danger { color: var(--danger); }
+.btn.sm { min-height: 36px; padding: 0 14px; font-size: 0.85rem; }
+
+/* Champs */
+.field { display: grid; gap: 6px; }
+.field label { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+.field input, .field textarea {
+  width: 100%; padding: 12px 14px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--surface-2); color: var(--text);
+  font: inherit; font-size: 1rem; /* 16px : évite le zoom iOS */
+}
+.field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.field textarea { resize: vertical; min-height: 110px; }
+
+.error { color: var(--danger); font-size: 0.9rem; margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
